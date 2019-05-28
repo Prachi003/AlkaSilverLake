@@ -63,13 +63,20 @@ public class UserProfileActivity extends AppCompatActivity implements View.OnCli
             rlOrderClick.setVisibility(View.VISIBLE);
         }
 
-        findViewById(R.id.rlParentnew).setOnTouchListener(this);
+        // findViewById(R.id.rlParentnew).setOnTouchListener(this);
+        findViewById(R.id.llLinear).setOnTouchListener(this);
         gestureDetector = new GestureDetector(this, new OnSwipeListener() {
 
             @Override
             public boolean onSwipe(Direction direction) {
 
                 if (direction == Direction.left) {
+                    Intent intentOrderNow = new Intent(UserProfileActivity.this, PickupAddreessActivity.class);
+                    startActivity(intentOrderNow);
+                    overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+
+                }
+                if (direction == Direction.right) {
                     Intent intentOrderNow = new Intent(UserProfileActivity.this, PickupAddreessActivity.class);
                     startActivity(intentOrderNow);
                     overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);

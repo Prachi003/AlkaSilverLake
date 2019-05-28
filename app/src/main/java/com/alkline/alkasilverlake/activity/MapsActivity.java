@@ -14,8 +14,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -62,7 +62,7 @@ import java.util.Objects;
 
 import static com.alkline.alkasilverlake.Constant.MY_PERMISSIONS_REQUEST_LOCATION;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
 
     private GoogleMap mMap;
     private LinearLayout llPickUp;
@@ -73,18 +73,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private TextView txtPickUp;
     private Session session;
     private TextView txtAddress;
+    boolean isChangedAddress = false;
     private Handler handler = new Handler(Looper.myLooper());
     private String latitudeBilling = "";
     private String longitudeBilling = "";
     private String addressBilling = "";
     private PDialog pDialog;
     boolean isShowViewAddress = false;
+    private TextView txtCurrentAddress;
+    private UserInfoModel localUserInfo;
     private String isSelect = "";
     private RelativeLayout rlAddressView;
     private TextView txtAddressDelivery;
     private LinearLayout llViewAddress;
     protected FusedLocationProviderClient mFusedLocationClient;
     protected LocationRequest locationRequest;
+
+
     @NonNull
     LocationCallback mLocationCallback = new LocationCallback() {
         @Override
@@ -103,7 +108,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public MapsActivity() {
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,6 +116,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (session.isLoggedIn()) {
             new Thread(() -> {
                 UserInfoModel userInfoModel = dataManager().userinfo(session.getRegistration().getId());
+                localUserInfo = dataManager().userinfo(session.getRegistration().getId());
                 addressBilling = userInfoModel.getDeliveryAddress();
 
                 handler.post(() -> {
@@ -134,9 +139,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
         llPickUp = findViewById(R.id.llPickUp);
         txtAddressDelivery = findViewById(R.id.txtAddressDelivery);
+        txtCurrentAddress = findViewById(R.id.txtCurrentAddress);
+        llViewAddress = findViewById(R.id.llViewAddress);
         llViewAddress = findViewById(R.id.llViewAddress);
         RelativeLayout rlAddress = findViewById(R.id.rlAddress);
         RelativeLayout rlClose = findViewById(R.id.rlClose);
+
+        txtAddressDelivery.setOnClickListener(this);
+        txtCurrentAddress.setOnClickListener(this);
         txtAddress = findViewById(R.id.txtAddress);
         rlAddressView = findViewById(R.id.rlAddressView);
         ivPickUp = findViewById(R.id.ivPickUp);
@@ -291,6 +301,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     animate.setDuration(500);
                     animate.setFillAfter(true);
                     rlAddressView.startAnimation(animate);
+                    txtCurrentAddress.setText("");
 
                 }
 
@@ -302,11 +313,38 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     showLoginSignUpDialog();
                 } else {
                     new Thread(() -> {
+                        double newLatPickUp = 0, newLngPickUp = 0;
                         UserInfoModel userInfoModel = dataManager().userinfo(session.getRegistration().getId());
                         addressBilling = userInfoModel.getDeliveryAddress();
+                        if (userInfoModel.getDeliveryLatitude() != null) {
+                            newLatPickUp = Double.valueOf(userInfoModel.getDeliveryLatitude());
+                            newLngPickUp = Double.valueOf(userInfoModel.getDeliveryLongitude());
 
+
+                        }
+
+
+                        double finalNewLatPickUp = newLatPickUp;
+                        double finalNewLngPickUp = newLngPickUp;
                         handler.post(() -> {
                             //  txtAddressDelivery.setText(addressBilling);
+                            LatLng pointPickUp;
+                            pointPickUp = new LatLng(finalNewLatPickUp, finalNewLngPickUp);
+
+                            final CameraPosition cameraPosition = new CameraPosition.Builder()
+                                    .target(pointPickUp)      // Sets the center of the map to Mountain View
+                                    .zoom(13)                   // Sets the zoom
+                                    .bearing(90)                // Sets the orientation of the camera to east
+                                    .tilt(30)                   // Sets the tilt of the camera to 30 degrees
+                                    .build();
+
+                            mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                            if (isChangedAddress) {
+                                txtCurrentAddress.setText(addressBilling);
+                            } else {
+                                txtCurrentAddress.setText("");
+                            }
+
                             txtAddress.setText(addressBilling);
                         });
 
@@ -326,6 +364,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 ivDelivery.setColorFilter(ContextCompat.getColor(MapsActivity.this, R.color.black_new));
                 txtDelivery.setTextColor(ContextCompat.getColor(MapsActivity.this, R.color.black_new));
                 txtAddress.setText(session.getAddress());
+                LatLng pointPickUp;
+                pointPickUp = new LatLng(Double.valueOf(session.getLatitude()), Double.valueOf(session.getLongitude()));
+
+                final CameraPosition cameraPosition = new CameraPosition.Builder()
+                        .target(pointPickUp)      // Sets the center of the map to Mountain View
+                        .zoom(13)                   // Sets the zoom
+                        .bearing(90)                // Sets the orientation of the camera to east
+                        .tilt(30)                   // Sets the tilt of the camera to 30 degrees
+                        .build();
+
+                mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
                 break;
 
             case R.id.rlAddress:
@@ -347,6 +397,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 onBackPressed();
 
                 break;
+
+            case R.id.txtCurrentAddress:
+                new Thread(() -> {
+                    double newLatPickUp = 0, newLngPickUp = 0;
+                    UserInfoModel userInfoModel = dataManager().userinfo(session.getRegistration().getId());
+                    addressBilling = userInfoModel.getDeliveryAddress();
+                    if (userInfoModel.getDeliveryLatitude() != null) {
+                        newLatPickUp = Double.valueOf(userInfoModel.getDeliveryLatitude());
+                        newLngPickUp = Double.valueOf(userInfoModel.getDeliveryLongitude());
+
+                    }
+                    dataManager().updateDeliveryAddress(addressBilling, userInfoModel.getDeliveryCountry(), userInfoModel.getDeliveryState(), String.valueOf(newLatPickUp), String.valueOf(newLngPickUp), Integer.parseInt(session.getRegistration().getId()));
+                    handler.post(this::onBackPressed);
+                }).start();
+
+                break;
+
+            case R.id.txtAddressDelivery:
+                new Thread(() -> {
+                    double newLatPickUp = 0, newLngPickUp = 0;
+                    addressBilling = localUserInfo.getDeliveryAddress();
+                    if (localUserInfo.getDeliveryLatitude() != null) {
+                        newLatPickUp = Double.valueOf(localUserInfo.getDeliveryLatitude());
+                        newLngPickUp = Double.valueOf(localUserInfo.getDeliveryLongitude());
+
+                    }
+                    dataManager().updateDeliveryAddress(addressBilling, localUserInfo.getDeliveryCountry(), localUserInfo.getDeliveryState(), String.valueOf(newLatPickUp), String.valueOf(newLngPickUp), Integer.parseInt(session.getRegistration().getId()));
+                    handler.post(this::onBackPressed);
+                }).start();
 
 
         }
@@ -405,11 +484,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     double newLatPickUp = Double.valueOf(latitudeBilling);
                     double newLngPickUp = Double.valueOf(longitudeBilling);
                     pointPickUp = new LatLng(newLatPickUp, newLngPickUp);
-
+                    isChangedAddress = true;
                     final CameraPosition cameraPosition = new CameraPosition.Builder()
                             .target(pointPickUp)      // Sets the center of the map to Mountain View
-                            .zoom(13)                   // Sets the zoom
-                            .bearing(90)                // Sets the orientation of the camera to east
+                            .zoom(15)                   // Sets the zoom
+                            .bearing(45)                // Sets the orientation of the camera to east
                             .tilt(30)                   // Sets the tilt of the camera to 30 degrees
                             .build();
 
@@ -449,10 +528,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Alkasilverlake.LATITUDE = location.getLatitude();
         Alkasilverlake.LONGITUDE = location.getLongitude();
 
-        /*if (address.isEmpty()) {
-            address = getAddressFromLatLng(Agrinvest.LATITUDE, Agrinvest.LONGITUDE);
-            AppLogger.e("Location ", address);
-        }*/
     }
 
     protected void onGpsAutomatic() {
@@ -469,8 +544,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             builder.setNeedBle(true);
             mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
             mFusedLocationClient.requestLocationUpdates(locationRequest, mLocationCallback, Looper.myLooper());
-            Task<LocationSettingsResponse> task =
-                    LocationServices.getSettingsClient(this).checkLocationSettings(builder.build());
+            Task<LocationSettingsResponse> task = LocationServices.getSettingsClient(this).checkLocationSettings(builder.build());
             task.addOnCompleteListener(task1 -> {
                 int permissionLocation1 = ContextCompat
                         .checkSelfPermission(this,
@@ -497,5 +571,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             updateLocation();
             updateMapUI();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
+
     }
 }

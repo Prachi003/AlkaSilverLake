@@ -127,6 +127,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
             Toast.makeText(mContext, "Network not available", Toast.LENGTH_SHORT).show();
         }
         PDialog.showDebugDBAddressLogToast();
+
+
     }
 
     public void init(View view) {
