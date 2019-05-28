@@ -1,0 +1,171 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Alka Silver Lake</string>
+    <string name="pod">PICKUP OR DELIVERY</string>
+    <string name="asl">ALKA SILVER LAKE</string>
+    <string name="quality">QUALITY WATER DELIVERED  \n AT THE TAP OF A BUTTON</string>
+    <string name="ordernow">ORDER NOW</string>
+    <string name="new_acc">CREATE NEW ACCOUNT</string>
+    <string name="signin">SIGN IN</string>
+    <string name="menu">MENU</string>
+
+
+    <!--new account text-->
+    <string name="createacco">Create an account so you can order your favorite even faster.</string>
+    <string name="fname">First Name</string>
+    <string name="lname">Last Name</string>
+    <string name="email">Email Address</string>
+    <string name="password">Password</string>
+    <string name="mob">Mobile Number</string>
+    <string name="fnameerror">First name is required</string>
+    <string name="lnameerror">Last name is required</string>
+    <string name="emailerror">Email is required</string>
+    <string name="passworderror">Password is required</string>
+    <string name="moberror">Mobile number is required</string>
+    <string name="mobtext">For security and order related question only.</string>
+    <string name="birth">Birthday (optional)</string>
+    <string name="birthtext">So we Know when to celebrate!</string>
+    <string name="btnca">CREATE ACCOUNT</string>
+    <string name="passreq">Create a password with these requirements:</string>
+    <string name="capital">ABC</string>
+    <string name="small">abc</string>
+    <string name="no">123</string>
+    <string name="emailInvalidError">Enter valid email</string>
+    <string name="passguide">Password is too simple.Use the guide.</string>
+    <string name="special">!@#</string>
+    <string name="charact">8 Characters Min.</string>
+    <string name="accotext">By joining Alka Silver Lake App,you are confirming that you 13 year of age or older,will receive email updates,promotion and offers from Alka Silver Lake,and agree to Alka Silver Lake\'s Privacy Policy and Term &amp; Conditions of the program.Alka silver Lake App is Available in limited test market only.</string>
+
+    <string name="privacy_and_terms">Privacy Policy and Term &amp; Conditions</string>
+
+    <!--sign in-->
+
+    <string name="hydrate">HYDRATE HEALTHY</string>
+    <string name="forgot">FORGOT PASSWORD?</string>
+    <string name="forgotPass">FORGOT PASSWORD</string>
+    <string name="forgotText1">No worries,we all forget</string>
+    <string name="forgotText2">sometimes.Enter your email</string>
+    <string name="forgotText3">No worries,we all forget</string>
+    <string name="btncontinue">CONTINUE</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="del_req">DELIVERY REQUEST</string>
+    <string name="qty">QTY</string>
+    <string name="product">PRODUCT</string>
+    <string name="watertype">WATER</string>
+    <string name="bottletype">BOTTLE TYPE</string>
+    <string name="doller">$</string>
+    <string name="geo">RECYCLE &amp; GET A DISCOUNT</string>
+    <string name="aslProduct">(A.S.L PRODUCTS ONLY,DISCOUNT WILL BE APPLIED AFTER DELIVERY)</string>
+    <string name="rec">RECYCLE</string>
+    <string name="product_add_text">no product added tap + to add an order</string>
+    <string name="optional">(optional)</string>
+    <string name="back">BACK</string>
+
+
+    <string name="add_order">Add Order</string>
+    <string name="add_order1">ADD ORDER</string>
+    <string name="Bottle_type">Bottle Type</string>
+    <string name="select">Select</string>
+    <string name="bo_con">Bottle Condition</string>
+    <string name="no_bottle">No. of Bottle</string>
+    <string name="add">ADD</string>
+    <string name="alka">ALKALINE</string>
+    <string name="pur">PURIFIED</string>
+    <string name="newd">NEW</string>
+
+
+    <!--SettingFragment string-->
+    <string name="setting_wt">Water Type</string>
+    <string name="setting_mc">Manage Card</string>
+    <string name="setting_au">About Us</string>
+    <string name="setting_tc">Terms &amp; Conditions</string>
+    <string name="setting_pp">Privacy Policy</string>
+    <string name="setting_cp">Change Password</string>
+    <string name="setting_log">Logout</string>
+    <string name="you_entered">YOU ENTERED</string>
+    <string name="if_we_have_your_email_address_in_the_n_system_you_ll_receive_a_message_nwith_a_link_to_reset_your_password">If we have your email address in the \n  system,you\'ll receive a message \n  with a link to reset your password.</string>
+    <string name="if_you_don_t_see_an_email_from_us_check_your_spam_or_junk_mail">If you don\'t see an email from us,\n check your spam or junk mail</string>
+    <string name="continue_text">Continue</string>
+    <string name="retry">Retry</string>
+
+
+    <string name="pickerview_cancel" tools:ignore="ButtonCase">cancel</string>
+    <string name="pickerview_submit">submit</string>
+    <string name="pickerview_year">y</string>
+    <string name="pickerview_month">m</string>
+    <string name="pickerview_day">day</string>
+    <string name="pickerview_hours">h</string>
+    <string name="pickerview_minutes">m</string>
+    <string name="pickerview_seconds">s</string>
+    <string name="pickerview_ampm"></string>
+    <string name="proceed_to_checkout">PROCEED TO CHECKOUT</string>
+    <string name="find_alka_silver_lake">FIND ALKA SILVER LAKE</string>
+    <string name="for_delivery_and_pickup">for DELIVERY and PICKUP</string>
+    <string name="view_your_account_info_manage_prefrences_set_up_payment_and_see_your_last_encounter_with_alka_silver_lake">View your account info,manage prefrences,\n set up payment,and see your last encounter \n with alka silver lake</string>
+    <string name="new_account">NEW ACCOUNT</string>
+    <string name="let_s_get_started">Let\'s get started</string>
+    <string name="faq">FAQ</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="rate_app">Rate App</string>
+    <string name="name">Name</string>
+    <string name="email_new">Email</string>
+    <string name="phone">PHONE</string>
+    <string name="birthday">Birthday</string>
+    <string name="delivery_information">Delivery Information</string>
+    <string name="billing_information">Billing information</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCJ9QjanZEeNZWQodI_fCttEZABP_6cg_w</string>
+    <string name="first_name">First Name</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="city_state_zip_or_delivery_address">City,state ,zip or Delivery address</string>
+    <string name="pick_up">PICK UP</string>
+    <string name="delivery">DELIVERY</string>
+    <string name="to_save_delivery_addresses">to save delivery addresses.</string>
+    <string name="sign_in_or_create_account">Sign in or create account</string>
+    <string name="to_find_a_delivery_address_start_a_search_above">To find a delivery address,\n start a search above</string>
+    <string name="my_order">My Order</string>
+    <string name="from">From</string>
+    <string name="dash">------------------------------------------------------------------------------------------------</string>
+    <string name="new_products">New products</string>
+    <string name="remove">Remove</string>
+    <string name="edit">Edit</string>
+    <string name="confirm_details">Confirm details</string>
+    <string name="guest">Guest</string>
+    <string name="recycle_products">Recycle products</string>
+    <string name="mm_yy">MM/YY</string>
+
+    <string name="add_card">Add Card</string>
+    <string name="we_will_debit_your_account_each_agreed_autopayment_date_no_debit_will_be_made_if_you_have_zero_balance_account_balance_when_the_autopayment_begins_processing_we_generally_begin_processing_your_autopay_payment_on_the_day_of_request">We will debit your Account each agreed Autopayment Date.No debit will be made if you  have zero balance ``Account Balance`` when the AutoPayment begins Processing.(We generally begin Processing your AutoPay Payment on the day of request.)</string>
+    <string name="recurring_payment_authorization">Recurring payment authorization</string>
+    <string name="start_on">START ON</string>
+    <string name="end_on">End ON</string>
+    <string name="weekly">Weekly</string>
+    <string name="checkout">Checkout</string>
+    <string name="one_time_payment">+ One time payment</string>
+    <string name="used">USED</string>
+    <string name="john_deo">John Deo</string>
+    <string name="delivery_charge">Delivery Charge</string>
+    <string name="order_total">Order total</string>
+    <string name="auto_delivery">Auto delivery</string>
+    <string name="swipe_card_down_to_submit_order">Swipe Card down to submit order</string>
+    <string name="one_time_payment_n">One Time Payment</string>
+    <string name="card_number">CARD NUMBER</string>
+    <string name="cvv">CVV</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="total_am">Total :</string>
+    <string name="add_to_bag">Add to bag</string>
+    <string name="for_new">For</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="no_fav">No Favrites Found</string>
+
+    <string name="days_ago">day ago</string>
+    <string name="hours_ago">hours ago</string>
+    <string name="minute_ago">minutes ago</string>
+    <string name="second_ago">seconds ago</string>
+    <string name="pick_up_from">PICK UP FROM</string>
+    <string name="most_recent">Most Recent</string>
+
+
+</resources>
+

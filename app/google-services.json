@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "992611822707",
+    "firebase_url": "https://alka-silver-lake.firebaseio.com",
+    "project_id": "alka-silver-lake",
+    "storage_bucket": "alka-silver-lake.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992611822707:android:3f31fce147170f75",
+        "android_client_info": {
+          "package_name": "com.alkline.Alkasilverlake"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "992611822707-a1eanb28vn5r6ako1psrrtge2hte10k8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOpp-R3tXxBKfvkteltbX7PP-KlbxK_fc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "992611822707-a1eanb28vn5r6ako1psrrtge2hte10k8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "992611822707-e2v846g9i033a277df8qfcptbnaorq9j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mindiii.alkaline"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

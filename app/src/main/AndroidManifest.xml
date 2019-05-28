@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.alkline.alkasilverlake">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:name=".base.Alkasilverlake"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/icon"
+        android:supportsRtl="true"
+        android:theme="@style/AuthTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".activity.OneTimePayMentActivity"
+            android:theme="@style/AuthTheme" />
+        <activity android:name=".activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+        <!--
+            <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="089d635a49cabf9e53718efc0180a4dab3a8347a" />
+        -->
+        <service
+            android:name=".activity.MyFirebaseMessagingServices"
+            android:permission="">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <activity
+            android:name=".activity.NewAccActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AuthTheme"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name=".activity.PickDelActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name=".activity.SigninActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AuthTheme"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name=".activity.TabActivity"
+            android:theme="@style/AuthTheme" />
+        <activity
+            android:name=".activity.ForgetPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AuthTheme"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name=".activity.OrderAddActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AuthTheme"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name=".activity.RecycleAddActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name=".activity.NewForgetPasswordActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AuthTheme"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="089d635a49cabf9e53718efc0180a4dab3a8347a" />
+
+        <activity android:name=".profile.UserProfileActivity" />
+        <activity android:name=".activity.PickupAddreessActivity" />
+        <activity android:name=".profile.PersonalProfileActivity" />
+        <activity
+            android:name=".activity.MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".activity.CartDetailActivity" />
+        <activity android:name=".payment.PaymentMethodActivity" />
+        <activity
+            android:name=".payment.AddCreditCardActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".activity.CheckOutActivity" />
+        <activity
+            android:name=".activity.PaymentAndAddCardActivity"
+            android:theme="@style/AuthTheme" />
+    </application>
+
+</manifest>

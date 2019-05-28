@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="appColor">#00adef</color>
+    <color name="darkGrayColor">#585858</color>
+    <color name="whiteColor">#ffffff</color>
+    <color name="ligthestWhiteColor">#f8f8f8</color>
+    <color name="red">#ff0000</color>
+    <color name="colorGreen">#8bc538</color>
+    <color name="grayMostDark">#58595b</color>
+    <color name="colorLightGray">#f0f0f0</color>
+    <color name="colorgray">#838282</color>
+    <color name="transparent">#00000000</color>
+    <color name="lightgray">#E1E1E2</color>
+    <color name="newgray">#6C7171</color>
+
+    <color name="pickerview_timebtn_nor">#057dff</color>
+    <color name="pickerview_timebtn_pre">#c2daf5</color>
+    <color name="pickerview_bg_topbar">#f5f5f5</color>
+    <color name="pickerview_topbar_title">#000000</color>
+    <color name="pickerview_wheelview_textcolor_out">#a8a8a8</color>
+    <color name="pickerview_wheelview_textcolor_center">#2a2a2a</color>
+    <color name="pickerview_wheelview_textcolor_divider">#d5d5d5</color>
+    <color name="bgColor_overlay">#60000000</color>
+    <color name="gray_light">#B9B9B9</color>
+    <color name="gray_light_new">#C5CBCD</color>
+    <color name="new_gray_dark">#6D6D6F</color>
+    <color name="new_gray_dark_new">#59555B</color>
+    <color name="graycolor">#CACACA</color>
+    <color name="light_color">#F6F6F4</color>
+    <color name="light_color_text">#BCBCBC</color>
+    <color name="black_new">#575759</color>
+    <color name="new_gray">#F3F3F5</color>
+    <color name="newdarkgray">#6F7173</color>
+    <color name="lightblue">#5ECBF3</color>
+
+
+</resources>

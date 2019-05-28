@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/splash_bg"
+    android:layout_height="match_parent"
+    tools:context="com.alkline.alkasilverlake.payment.PaymentMethodActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:text="Payment methods"
+            android:textAllCaps="true"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:fontFamily="@font/brownstdbold"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content" />
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:id="@+id/ivBack"
+
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/right_arrow_ico"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true" />
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@color/colorgray"
+            android:layout_height="1dp"/>
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:background="@drawable/gray_shape"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/llCreditCard"
+            android:layout_marginTop="20dp"
+
+            android:layout_height="30dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@color/darkGrayColor"
+                android:fontFamily="@font/brownregular"
+                android:text="+ Credit card"
+                android:letterSpacing=".2"
+                android:gravity="center"
+                android:layout_height="wrap_content" />
+
+
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@color/colorgray"
+            android:layout_height="1dp"/>
+
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:id="@+id/recycleCard"
+        tools:listitem ="@layout/list_item_card"
+
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+
+</LinearLayout>

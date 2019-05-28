@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/rlParent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_bg"
+    tools:context="com.alkline.alkasilverlake.activity.PaymentAndAddCardActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:id="@+id/rlHeader"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/txtTotal"
+            android:textAllCaps="true"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/darkGrayColor"
+            android:textSize="18sp"
+            android:fontFamily="@font/brownstdbold"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content" />
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:id="@+id/ivClose"
+
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/back_arrow_ico"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true" />
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_above="@+id/llCheckOut"
+        android:layout_below="@+id/rlHeader"
+
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:id="@+id/llPickUp"
+
+                    android:background="@drawable/button_blue_bag"
+                    android:layout_height="32dp">
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:id="@+id/ivPickUp"
+                        android:tint="@color/whiteColor"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/inactive_pick_up_ico"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="5dp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="@string/pick_up"
+                        android:id="@+id/txtPickUp"
+                        android:gravity="end"
+
+                        android:layout_gravity="center"
+                        android:textColor="@color/whiteColor"
+                        android:fontFamily="@font/brownregular"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_marginLeft="1dp"
+                    android:id="@+id/llDelivery"
+
+                    android:background="@drawable/button_pickup_placeholder"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="1dp">
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:id="@+id/ivDelivery"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/inactive_delivery_ico"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="5dp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:text="@string/delivery"
+                        android:gravity="center"
+                        android:id="@+id/txtDelivery"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black_new"
+                        android:fontFamily="@font/brownregular"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/newgray"
+                android:layout_marginTop="30dp"
+                android:layout_height="1dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/llPickDel"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/brownstdbold"
+                        android:text="@string/find_alka_silver_lake"
+                        android:textSize="10sp"
+
+
+                        android:textColor="@color/newgray"
+                        android:id="@+id/txtPick"
+                        android:layout_marginLeft="5dp"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:fontFamily="@font/brownregular"
+                        android:text="@string/for_delivery_and_pickup"
+                        android:textSize="10sp"
+                        android:textColor="@color/newgray"
+
+                        android:layout_below="@+id/txtPick"
+                        android:layout_marginLeft="5dp"
+                        android:layout_height="wrap_content"
+                        tools:ignore="SmallSp"
+                        android:layout_marginStart="5dp" />
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_height="30dp"
+                        android:src="@drawable/map_ico"
+                        android:layout_alignParentRight="true" />
+
+                </RelativeLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/newgray"
+                    android:layout_marginTop="30dp"
+                    android:layout_height="1dp"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="250dp"
+                android:background="@drawable/gray_shape"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/llCreditCard"
+                android:layout_marginTop="20dp"
+
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/darkGrayColor"
+                    android:fontFamily="@font/brownregular"
+                    android:text="+ Credit card"
+                    android:letterSpacing=".2"
+                    android:gravity="center"
+                    android:layout_height="wrap_content" />
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="250dp"
+                android:background="@drawable/gray_shape"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/llOneTimePayment"
+                android:layout_marginTop="5dp"
+
+                android:layout_height="30dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:textAllCaps="true"
+                    android:textColor="@color/darkGrayColor"
+                    android:fontFamily="@font/brownregular"
+                    android:text="@string/one_time_payment"
+                    android:letterSpacing=".2"
+                    android:gravity="center"
+                    android:layout_height="wrap_content" />
+
+
+
+
+            </LinearLayout>
+
+
+
+            <com.yarolegovich.discretescrollview.DiscreteScrollView
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:id="@+id/scCard"
+                app:dsv_orientation="horizontal"
+
+                android:layout_height="wrap_content">
+
+
+
+            </com.yarolegovich.discretescrollview.DiscreteScrollView>
+
+
+
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/llCheckOut"
+        android:visibility="visible"
+        android:background="@drawable/down_arrow_btn_img"
+        android:layout_alignParentBottom="true"
+        android:layout_height="60dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:fontFamily="@font/brownregular"
+            android:text="@string/swipe_card_down_to_submit_order"
+            android:letterSpacing=".25"
+            android:textAllCaps="true"
+            android:textSize="12sp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/whiteColor"
+            android:layout_gravity="center"
+            android:layout_height="match_parent" />
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+</RelativeLayout>

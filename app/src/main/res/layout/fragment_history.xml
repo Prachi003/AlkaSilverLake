@@ -1,0 +1,158 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:background="@drawable/splash_bg"
+    tools:context="com.alkline.alkasilverlake.fragment.HistoryFragment">
+
+
+    <LinearLayout
+        android:id="@+id/llBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+
+        <Button
+            android:id="@+id/btnMenu"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:background="@drawable/button_white_bag"
+            android:fontFamily="@font/brownbold"
+            android:letterSpacing=".20"
+            android:text="@string/back"
+            android:textAllCaps="false"
+            android:textColor="@color/darkGrayColor"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="4dp"
+            app:srcCompat="@drawable/ic_down_haff_circle_ico" />
+
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rlCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/circlewhite"
+            android:scaleType="centerInside"
+            android:tint="@color/grayMostDark"
+            app:srcCompat="@drawable/ic_bag_img"
+            tools:ignore="ContentDescription" />
+
+
+        <RelativeLayout
+            android:id="@+id/rlCount"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/circleredfill"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/txtCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/brownstdbold"
+                android:textColor="@color/whiteColor" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/ivProfilenew"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/circlewhite"
+        android:tint="@color/grayMostDark"
+        app:srcCompat="@drawable/ic_user_ico" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerProduct"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/llCheckOut"
+        android:layout_below="@+id/llBack"
+        tools:listitem="@layout/adapter_history">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/llCheckOut"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/appColor"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/brownregular"
+            android:gravity="center"
+            android:letterSpacing=".25"
+            android:text="@string/add_to_bag"
+            android:textAllCaps="true"
+            android:textColor="@color/whiteColor"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtNoHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:fontFamily="@font/brownregular"
+        android:gravity="center"
+        android:letterSpacing=".25"
+        android:text="No History Found"
+        android:textAllCaps="true"
+        android:textColor="@color/darkGrayColor"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

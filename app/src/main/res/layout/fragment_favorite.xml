@@ -1,0 +1,21 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.alkline.alkasilverlake.fragment.FavoriteFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="87dp"
+        android:layout_marginRight="87dp"
+        android:fontFamily="@font/brownbold"
+        android:text="Under Indevelopment"
+        android:textColor="@color/appColor"
+        android:textSize="20sp" />
+</RelativeLayout>

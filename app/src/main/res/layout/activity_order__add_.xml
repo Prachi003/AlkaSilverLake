@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLightGray"
+    tools:context=".activity.OrderAddActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/rr"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/whiteColor">
+
+
+        <ImageView
+            android:id="@+id/iv_product_leftarrow"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@drawable/back_arrow_ico"
+            android:layout_alignParentRight="true" />
+
+        <TextView
+            android:id="@+id/tv_addorder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/brownbold"
+            android:padding="5dp"
+            android:text="@string/add_order1"
+            android:textColor="@color/grayMostDark"
+            android:textSize="17sp" />
+
+
+
+
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rr"
+        android:layout_margin="10dp"
+        card_view:cardBackgroundColor="@color/whiteColor"
+        card_view:cardCornerRadius="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_payment"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextView_blue_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/brownstdbold"
+                    android:text="@string/add_order" />
+
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_payment_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorLightGray" />
+
+
+                <TextView
+                    android:id="@+id/watertype_radio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/brownregular"
+                    android:text="@string/setting_wt"
+                    android:textColor="@color/grayMostDark"
+                    android:textSize="14sp" />
+
+
+                <LinearLayout
+                    android:id="@+id/ll_watertype_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/radiogroupwatertype"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbAlklinewatertype"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/grayMostDark"
+                            android:fontFamily="@font/brownregular"
+                            android:text="@string/alka"
+                            android:textColor="@color/grayMostDark" />
+
+                        <RadioButton
+                            android:id="@+id/rbPurifiedwatertype"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:buttonTint="@color/grayMostDark"
+                            android:fontFamily="@font/brownregular"
+                            android:text="@string/pur"
+                            android:textColor="@color/grayMostDark" />
+                    </RadioGroup>
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/tv_bottletype"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/brownregular"
+                    android:text="@string/Bottle_type"
+                    android:textColor="@color/grayMostDark"
+                    android:textSize="14sp" />
+
+
+                <EditText
+                    android:id="@+id/etBottletype"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/bank_ahtype"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@null"
+                    android:clickable="false"
+                    android:drawableRight="@drawable/ic_down_chevron"
+                    android:focusable="false"
+                    android:fontFamily="@font/brownregular"
+                    android:hint="@string/select"
+                    android:inputType="text"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/darkGrayColor"
+                    android:textColorHint="@color/darkGrayColor"
+                    android:textSize="14sp"
+
+                    />
+
+
+                <View
+                    android:id="@+id/bank_view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/bank_et_ahtype"
+                    android:background="@color/colorLightGray" />
+
+
+                <TextView
+                    android:id="@+id/bottle_con"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/brownregular"
+                    android:text="@string/bo_con"
+                    android:textColor="@color/grayMostDark"
+                    android:textSize="14sp" />
+
+
+                <LinearLayout
+                    android:id="@+id/ll_bottle_con_radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/radiogroup_bottle_con"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rb_new_bottle_con"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/grayMostDark"
+                            android:fontFamily="@font/brownregular"
+                            android:text="@string/newd"
+                            android:textColor="@color/grayMostDark" />
+
+                        <RadioButton
+                            android:id="@+id/rb_used_bottle_con"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:buttonTint="@color/grayMostDark"
+                            android:fontFamily="@font/brownregular"
+                            android:text="@string/used"
+                            android:textColor="@color/grayMostDark" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_bottle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/brownregular"
+                    android:text="@string/no_bottle"
+                    android:textColor="@color/grayMostDark"
+                    android:textSize="14sp" />
+
+
+                <LinearLayout
+                    android:id="@+id/cart_inc_li1"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/cart_water_name"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="3">
+
+                    <ImageView
+                        android:id="@+id/iv_bottle_sub"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/sub"
+                        app:srcCompat="@drawable/ic_remove_black_24dp" />
+
+
+                    <TextView
+                        android:id="@+id/tv_Bottle_quntituy"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/inc_number"
+                        android:fontFamily="@font/brownregular"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="@color/grayMostDark"
+                        android:textStyle="bold" />
+
+
+                    <ImageView
+                        android:id="@+id/iv_bottle_add"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="@drawable/add"
+                        app:srcCompat="@drawable/ic_add_black_24dp" />
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/brownregular"
+                        android:text="Total Price"
+                        android:textColor="@color/grayMostDark"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/etorder_price"
+                        android:layout_width="160dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentRight="true"
+                        android:backgroundTint="@color/darkGrayColor"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:fontFamily="@font/brownregular"
+                        android:gravity="center"
+                        android:hint="0.0"
+                        android:inputType="text"
+                        android:textColor="@color/grayMostDark"
+                        android:textColorHint="@color/grayMostDark"
+                        android:textSize="14sp"
+
+                        />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/btn_Addproductlist"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_below="@+id/card_view"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/disp_edit"
+        android:text="@string/add"
+        android:textColor="@color/whiteColor"
+        >
+
+        <TextView
+            android:id="@+id/pl_change_add_update"
+            style="@style/TextView_blue_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/brownregular"
+            android:layout_centerInParent="true"
+            android:text="@string/add"
+            android:textColor="@color/whiteColor"
+            />
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
+

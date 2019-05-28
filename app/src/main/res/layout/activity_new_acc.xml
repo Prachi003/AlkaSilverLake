@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_bg"
+    android:orientation="vertical"
+    android:scrollbars="none">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp">
+
+
+            <TextView
+                android:id="@+id/rbtn_signup"
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/brownbold"
+                android:gravity="center"
+                android:text="NEW ACCOUNT"
+                android:textAllCaps="false"
+                android:textColor="@color/darkGrayColor"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/acc_cancel"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:tint="@color/darkGrayColor"
+                android:scaleType="center"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/circlewhite"
+                app:srcCompat="@drawable/ic_cancel"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginStart="95dp"
+                android:layout_marginEnd="95dp"
+                android:fontFamily="@font/brownlight"
+                android:gravity="center"
+                android:padding="3dp"
+                android:text="@string/createacco"
+                android:textAllCaps="false"
+                android:textColor="@color/appColor"
+                android:textSize="11sp" />
+
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
+
+                <TextView
+                    android:id="@+id/fnameerror"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/brownlight"
+                    android:gravity="center"
+                    android:text="@string/fnameerror"
+                    android:textAllCaps="false"
+                    android:textColor="#ff0000"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/newacc_lay_firstname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/fnameerror"
+                    android:textColorHint="@color/darkGrayColor"
+                    app:backgroundTint="@color/darkGrayColor">
+
+                    <EditText
+                        android:id="@+id/newacc_firstname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/gray_light_new"
+                        android:fontFamily="@font/brownlight"
+                        android:hint="@string/fname"
+                        android:inputType="text"
+                        android:padding="15dp"
+                        android:singleLine="true"
+                        android:textColorHint="@color/gray_light_new" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/lnameerror"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/newacc_lay_firstname"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/brownlight"
+                    android:gravity="center"
+                    android:text="@string/lnameerror"
+                    android:textAllCaps="false"
+                    android:textColor="#ff0000"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/newacc_lay_lastname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lnameerror">
+
+                    <EditText
+                        android:id="@+id/newacc_lastname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/gray_light_new"
+                        android:fontFamily="@font/brownlight"
+                        android:hint="@string/lname"
+                        android:inputType="text"
+                        android:padding="15dp"
+                        android:textColorHint="@color/gray_light_new" />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/fullpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:layout_below="@+id/newacc_lay_lastname"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:background="@drawable/passworderror"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/brownlight"
+                            android:gravity="center"
+                            android:text="@string/passreq"
+                            android:textColor="@color/whiteColor"
+                            android:textSize="13sp" />
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="50dp"
+                            android:layout_marginTop="3dp">
+
+                            <TextView
+                                android:id="@+id/capital"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/brownlight"
+                                android:gravity="center"
+                                android:text="@string/capital"
+                                android:textColor="@color/whiteColor"
+                                android:textSize="13sp" />
+
+                            <View
+                                android:layout_width="25dp"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/capital"
+                                android:background="@color/whiteColor" />
+
+
+                            <TextView
+                                android:id="@+id/small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/capital"
+                                android:fontFamily="@font/brownlight"
+                                android:gravity="center"
+                                android:text="@string/small"
+                                android:textColor="@color/whiteColor"
+                                android:textSize="13sp" />
+
+                            <View
+                                android:layout_width="22dp"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/small"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/capital"
+                                android:background="@color/whiteColor" />
+
+
+                            <TextView
+                                android:id="@+id/no"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/small"
+                                android:fontFamily="@font/brownlight"
+                                android:gravity="center"
+                                android:text="@string/no"
+                                android:textColor="@color/whiteColor"
+                                android:textSize="13sp" />
+
+                            <View
+                                android:layout_width="19dp"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/small"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/small"
+                                android:background="@color/whiteColor" />
+
+                            <TextView
+                                android:id="@+id/special"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/no"
+                                android:fontFamily="@font/brownlight"
+                                android:gravity="center"
+                                android:text="@string/special"
+                                android:textColor="@color/whiteColor"
+                                android:textSize="13sp" />
+
+                            <View
+                                android:layout_width="23dp"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/no"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/no"
+                                android:background="@color/whiteColor" />
+
+                            <TextView
+                                android:id="@+id/charact"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/special"
+                                android:fontFamily="@font/brownlight"
+                                android:gravity="center"
+                                android:text="@string/charact"
+                                android:textColor="@color/whiteColor"
+                                android:textSize="13sp" />
+
+                            <View
+                                android:layout_width="105dp"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/no"
+                                android:layout_marginLeft="10dp"
+                                android:layout_toRightOf="@+id/special"
+                                android:background="@color/whiteColor" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="-13dp"
+                        app:srcCompat="@drawable/ic_arrow_point_to_down"
+                        android:tint="@color/appColor" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/emailerror"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/newacc_lay_lastname"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/brownlight"
+                    android:gravity="center"
+                    android:text="@string/emailerror"
+                    android:textAllCaps="false"
+                    android:textColor="#ff0000"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvvalidpass"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/newacc_lay_lastname"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/brownlight"
+                    android:gravity="center"
+                    android:text="@string/emailInvalidError"
+                    android:textAllCaps="false"
+                    android:textColor="#ff0000"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/newacc_lay_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/emailerror">
+
+                    <EditText
+                        android:id="@+id/newacc_email"
+                        android:backgroundTint="@color/gray_light_new"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/brownlight"
+                        android:hint="@string/email"
+                        android:inputType="textEmailAddress"
+                        android:padding="15dp"
+                        android:textColorHint="@color/gray_light_new" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/passworderror"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/newacc_lay_email"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/brownlight"
+                    android:gravity="center"
+                    android:text="@string/passworderror"
+                    android:textAllCaps="false"
+                    android:textColor="#ff0000"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/passguide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/newacc_lay_email"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/brownlight"
+                    android:gravity="center"
+                    android:text="@string/passguide"
+                    android:textAllCaps="false"
+                    android:textColor="#ff0000"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+
+                <RelativeLayout
+                    android:id="@+id/rlpassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/passworderror">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/newacc_lay_Password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/selector_toggle_password"
+                        >
+
+                        <EditText
+                            android:id="@+id/newacc_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/brownlight"
+                            android:hint="@string/password"
+                            android:paddingBottom="15dp"
+                            android:paddingEnd="0dp"
+                            android:paddingRight="15dp"
+                            android:backgroundTint="@color/gray_light_new"
+                            android:paddingTop="12dp"
+                            android:paddingStart="15dp"
+                            android:textColorHint="@color/gray_light_new"
+                            android:paddingLeft="15dp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <ImageView
+                        android:visibility="gone"
+                        android:id="@+id/passhidegone"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:paddingEnd="2dp"
+                        android:paddingStart="2dp"
+                        android:layout_marginEnd="10dp"
+                        app:srcCompat="@drawable/ic_red_eye_ico"
+                        tools:ignore="ContentDescription"
+                        android:layout_marginRight="10dp" />
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/moberror"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlpassword"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/brownlight"
+                    android:gravity="center"
+                    android:text="@string/moberror"
+                    android:textAllCaps="false"
+                    android:textColor="#ff0000"
+                    android:textSize="12sp"
+                    android:visibility="gone" />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/newacc_lay_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/moberror">
+
+                    <EditText
+                        android:id="@+id/newacc_mobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/gray_light_new"
+                        android:fontFamily="@font/brownlight"
+                        android:hint="@string/mob"
+                        android:inputType="number"
+                        android:padding="15dp"
+
+                        android:textColorHint="@color/gray_light_new" />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <TextView
+                    android:id="@+id/mobtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/newacc_lay_mobile"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/brownlight"
+                    android:gravity="center"
+                    android:layout_marginTop="-7dp"
+                    android:text="@string/mobtext"
+                    android:textAllCaps="false"
+                    android:textColor="@color/gray_light_new"
+                    android:textSize="12sp" />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/newacc_lay_birth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mobtext">
+
+                    <EditText
+                        android:id="@+id/newacc_birth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:focusable="false"
+                        android:backgroundTint="@color/gray_light_new"
+                        android:fontFamily="@font/brownlight"
+                        android:hint="@string/birth"
+                        android:inputType="text"
+                        android:padding="15dp"
+                        android:textColorHint="@color/gray_light_new" />
+                </android.support.design.widget.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/birthtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/newacc_lay_birth"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/brownlight"
+                    android:gravity="center"
+                    android:layout_marginTop="-7dp"
+                    android:text="@string/birthtext"
+                    android:textAllCaps="false"
+                    android:textColor="@color/gray_light_new"
+                    android:textSize="12sp" />
+
+
+                <Button
+                    android:id="@+id/btnacc"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/birthtext"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="100dp"
+                    android:background="@drawable/btnappcolorback"
+                    android:fontFamily="@font/brownbold"
+                    android:gravity="center"
+                    android:letterSpacing=".20"
+                    android:text="@string/btnca"
+                    android:textAllCaps="false"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvacc_signin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btnacc"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/brownlight"
+                    android:text="@string/signin"
+                    android:letterSpacing=".1"
+                    android:textAllCaps="false"
+                    android:textColor="@color/appColor"
+                    android:textSize="15sp" />
+
+
+                <TextView
+                    android:id="@+id/tvSpannanbleContents"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvacc_signin"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="start"
+                    android:layout_marginEnd="35dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/brownlight"
+                    android:lineSpacingExtra="2dp"
+                    android:text="@string/accotext"
+                    android:textAllCaps="false"
+                    android:textColor="@color/new_gray_dark"
+                    android:textSize="12sp"
+                    tools:targetApi="jelly_bean" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:focusableInTouchMode="true"
+    android:background="@drawable/splash_bg"
+    android:layout_height="match_parent"
+    tools:context="com.alkline.alkasilverlake.activity.CheckOutActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:id="@+id/rlCheckOut"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/checkout"
+            android:textAllCaps="true"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:fontFamily="@font/brownstdbold"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content" />
+
+
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:id="@+id/ivBack"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/back_arrow_ico"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="10dp" />
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_above="@+id/llTerms"
+        android:layout_below="@+id/rlCheckOut"
+
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="14dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="vertical"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/appColor"
+                    android:layout_height=".89dp"/>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:textSize="14sp"
+
+                        android:textAllCaps="true"
+                        android:layout_marginLeft="7dp"
+                        android:letterSpacing=".1"
+                        android:textColor="@color/appColor"
+                        android:fontFamily="@font/brownregular"
+                        android:text="Delivery Information"
+                        android:layout_height="wrap_content" />
+
+
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_alignParentEnd="true"
+                        android:background="@null"
+
+                        android:inputType="textPassword"
+                        android:textColor="@color/darkGrayColor"
+                        android:textAllCaps="true"
+                        android:id="@+id/imgDevUp"
+
+                        android:padding="7dp"
+                        app:srcCompat="@drawable/ic_down_arrow"
+                        android:layout_marginRight="8dp"
+                        android:layout_centerVertical="true"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginEnd="8dp" />
+                </RelativeLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/appColor"
+
+                    android:layout_marginTop="20dp"
+                    android:layout_height=".89dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    android:id="@+id/llDelinfo"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:text="@string/name"
+                        android:background="@null"
+                        android:id="@+id/edName"
+                        android:textSize="14sp"
+                        android:layout_marginLeft="7dp"
+                        android:textColor="@color/darkGrayColor"
+                        android:fontFamily="@font/brownregular"
+                        android:layout_height="wrap_content" />
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:src="@drawable/dot_line"
+                        android:layout_marginTop="8dp"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Address"
+                        android:id="@+id/txtAddress"
+                        android:layout_marginLeft="7dp"
+                        android:textColor="@color/darkGrayColor"
+                        android:fontFamily="@font/brownregular"
+                        android:layout_height="wrap_content" />
+
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:background="@color/appColor"
+
+                        android:layout_marginTop="20dp"
+                        android:layout_height=".89dp"/>
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:padding="2dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:textSize="14sp"
+                        android:id="@+id/tvBillingInfo"
+                        android:textAllCaps="true"
+                        android:layout_marginLeft="7dp"
+                        android:letterSpacing=".1"
+                        android:textColor="@color/appColor"
+                        android:fontFamily="@font/brownregular"
+                        android:text="Billing Information"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:orientation="horizontal"
+                        android:id="@+id/llSameAs"
+                        android:layout_marginTop="5dp"
+
+                        android:layout_centerVertical="true"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:id="@+id/ivSame"
+                            android:layout_gravity="center"
+                            android:src="@drawable/circle_without_solid"
+                            android:layout_height="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_gravity="center"
+                            android:textAllCaps="true"
+                            android:fontFamily="@font/brownregular"
+                            android:layout_marginLeft="10dp"
+                            android:text="Same as above"
+                            android:textSize="10sp"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_alignParentEnd="true"
+                            android:background="@null"
+                            android:inputType="textPassword"
+                            android:textColor="@color/darkGrayColor"
+                            android:textAllCaps="true"
+                            android:id="@+id/imgbillingUp"
+                            android:padding="7dp"
+                            app:srcCompat="@drawable/ic_down_arrow"
+                            android:layout_marginRight="8dp"
+                            android:layout_centerVertical="true"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginEnd="8dp" />
+
+                    </LinearLayout>
+
+
+
+
+
+                </RelativeLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="@color/appColor"
+
+                    android:layout_marginTop="20dp"
+                    android:layout_height=".89dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+
+                    android:visibility="visible"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+                        android:id="@+id/llBillInfo"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:layout_width="wrap_content"
+                            android:text="@string/name"
+                            android:textSize="14sp"
+                            android:id="@+id/edtBillingName"
+                            android:background="@null"
+                            android:layout_marginLeft="7dp"
+                            android:textColor="@color/darkGrayColor"
+                            android:fontFamily="@font/brownregular"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="7dp" />
+
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:src="@drawable/dot_line"
+                            android:layout_marginTop="8dp"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:text="@string/name"
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/txtBillingAddress"
+                            android:layout_marginLeft="7dp"
+                            android:textColor="@color/darkGrayColor"
+                            android:fontFamily="@font/brownregular"
+                            android:layout_height="wrap_content" />
+
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:background="@color/appColor"
+
+                            android:layout_marginTop="20dp"
+                            android:layout_height=".89dp"/>
+
+                    </LinearLayout>
+
+
+
+
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/rlAutoDelivery"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:textSize="14sp"
+                            android:layout_centerVertical="true"
+                            android:textAllCaps="true"
+                            android:layout_marginLeft="7dp"
+                            android:letterSpacing=".1"
+                            android:textColor="@color/appColor"
+                            android:fontFamily="@font/brownregular"
+                            android:text="@string/auto_delivery"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="7dp" />
+
+
+
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="14dp"
+                            android:src="@drawable/circle_without_solid"
+                            android:layout_marginRight="10dp"
+                            android:id="@+id/ivAutoDelivery"
+                            android:layout_centerVertical="true"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginEnd="10dp" />
+                    </RelativeLayout>
+
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:background="@color/appColor"
+
+                        android:layout_marginTop="20dp"
+                        android:layout_height=".89dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="1"
+                        android:visibility="gone"
+                        android:id="@+id/llAutoDeliveryOptions"
+                        android:layout_marginTop="20dp"
+
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_weight=".50"
+                            android:layout_marginLeft="20dp"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:id="@+id/llWeekly"
+                                    android:layout_height="wrap_content">
+
+
+                                    <ImageView
+                                        android:layout_width="25dp"
+                                        android:id="@+id/ivWeekly"
+                                        android:src="@drawable/circlewhite"
+                                        android:layout_height="25dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="@string/weekly"
+                                        android:layout_marginLeft="10dp"
+                                        android:fontFamily="@font/brownregular"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:id="@+id/llBiWeekly"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_height="wrap_content">
+
+
+                                    <ImageView
+                                        android:layout_width="25dp"
+                                        android:id="@+id/ivBiWeekly"
+                                        android:src="@drawable/circlewhite"
+                                        android:layout_height="25dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="Bi-Weekly"
+                                        android:layout_marginLeft="10dp"
+                                        android:fontFamily="@font/brownregular"
+                                        android:layout_height="wrap_content" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="5dp"
+                                    android:id="@+id/llMonthly"
+                                    android:layout_height="wrap_content">
+
+
+                                    <ImageView
+                                        android:layout_width="25dp"
+                                        android:src="@drawable/circlewhite"
+                                        android:id="@+id/ivMonthly"
+                                        android:layout_height="25dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="Monthly"
+                                        android:layout_marginLeft="10dp"
+                                        android:fontFamily="@font/brownregular"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:id="@+id/llBiMonthlyy"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_height="wrap_content">
+
+
+                                    <ImageView
+                                        android:layout_width="25dp"
+                                        android:id="@+id/ivBiMonthly"
+                                        android:src="@drawable/circlewhite"
+                                        android:layout_height="25dp" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:text="Bi Monthly"
+                                        android:layout_marginLeft="10dp"
+                                        android:fontFamily="@font/brownregular"
+                                        android:layout_height="wrap_content" />
+
+                                </LinearLayout>
+
+
+
+                            </LinearLayout>
+
+
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_marginRight="40dp"
+
+                            android:layout_gravity="center"
+                            android:background="@color/gray_light_new"
+                            android:layout_height="200dp"/>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_weight=".50"
+                            android:orientation="horizontal"
+                            android:layout_height="wrap_content"
+                           >
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_height="wrap_content">
+
+                                <RelativeLayout
+                                    android:layout_width="100dp"
+                                    android:orientation="horizontal"
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:text="@string/start_on"
+                                        android:layout_centerVertical="true"
+                                        android:textSize="12sp"
+                                        android:id="@+id/txtStartDate"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/brownregular"
+                                        android:layout_height="wrap_content" />
+
+                                    <ImageView
+                                        android:id="@+id/ivStartDate"
+                                        android:layout_width="30dp"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_height="30dp"
+                                        android:layout_centerVertical="true"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/inactive_calender_ico"
+                                        android:layout_alignParentRight="true" />
+
+
+
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="100dp"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:text="@string/end_on"
+                                        android:textAllCaps="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_gravity="center"
+                                        android:textSize="12sp"
+                                        android:id="@+id/txtEndDate"
+                                        android:fontFamily="@font/brownregular"
+                                        android:layout_height="wrap_content" />
+
+                                    <ImageView
+                                        android:layout_width="30dp"
+                                        android:layout_gravity="end"
+                                        android:id="@+id/ivEndDate"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentEnd="true"
+
+                                        android:src="@drawable/inactive_calender_ico"
+                                        android:layout_height="30dp"
+                                        android:layout_alignParentRight="true" />
+
+
+
+
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:text="OR"
+                                    android:layout_gravity="center"
+                                    android:textColor="@color/darkGrayColor"
+                                    android:layout_marginTop="10dp"
+
+                                    android:fontFamily="@font/brownstdbold"
+                                    android:layout_height="wrap_content" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:text="Indefinite"
+                                        android:textAllCaps="true"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/brownregular"
+                                        android:layout_height="wrap_content" />
+
+                                    <ImageView
+                                        android:layout_width="25dp"
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="10dp"
+                                        android:id="@+id/ivIndefinite"
+                                        android:src="@drawable/circlewhite"
+                                        android:layout_height="25dp"
+                                        android:layout_marginStart="10dp" />
+
+
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+
+
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/llTerms"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="16sp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/grayMostDark"
+            android:text="Have you read our Terms and Conditions?"
+            android:fontFamily="@font/brownlight"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="16sp"
+            android:textColor="@color/appColor"
+            android:text="Terms and Conditions"
+            android:textAllCaps="true"
+            android:letterSpacing=".2"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/brownstdbold"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/llCheckOut"
+            android:visibility="visible"
+            android:background="@color/appColor"
+            android:layout_alignParentBottom="true"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:fontFamily="@font/brownregular"
+                android:text="Continue"
+                android:letterSpacing=".25"
+                android:textAllCaps="true"
+                android:textSize="12sp"
+                android:textColor="@color/whiteColor"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

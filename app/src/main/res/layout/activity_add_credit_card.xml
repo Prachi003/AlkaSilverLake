@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/splash_bg"
+    android:layout_height="match_parent"
+    tools:context="com.alkline.alkasilverlake.payment.AddCreditCardActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:id="@+id/rlHeader"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:text="Add a credit card"
+            android:textAllCaps="true"
+            android:id="@+id/txtTitle"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textSize="18sp"
+            android:fontFamily="@font/brownstdbold"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content" />
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:id="@+id/ivClose"
+
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            app:srcCompat="@drawable/ic_circle_cross_ico"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/rlHeader"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:layout_below="@+id/rlHeader"
+            android:layout_marginTop="10dp"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/card_no"
+                android:layout_width="0dp"
+                android:layout_weight=".60"
+
+                android:layout_height="wrap_content"
+                >
+
+                <EditText
+                    android:id="@+id/edt_card_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/brownlight"
+                    android:hint="CARD NUMBER"
+                    android:textSize="14sp"
+                    android:textAllCaps="true"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    android:textColorHint="@color/pickerview_wheelview_textcolor_out" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/signin_lay_email"
+                android:layout_width="0dp"
+                android:layout_weight=".60"
+
+                android:layout_height="wrap_content"
+                >
+
+                <EditText
+                    android:id="@+id/edCvv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/brownlight"
+                    android:hint="CVV"
+
+                    android:textAllCaps="true"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    android:textColorHint="@color/pickerview_wheelview_textcolor_out" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="6dp"
+            android:orientation="vertical"
+            android:id="@+id/llDate"
+
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="6dp">
+
+
+            <TextView
+                android:id="@+id/edDateTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/brownlight"
+                android:hint="@string/mm_yy"
+                android:textSize="14sp"
+                android:enabled="true"
+                android:textAllCaps="true"
+                android:padding="15dp"
+                android:textColorHint="@color/pickerview_wheelview_textcolor_out" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="8dp"
+                android:background="@color/darkGrayColor"
+                android:layout_height="1dp"/>
+
+        </LinearLayout>
+
+
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/cardHolder"
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+
+            android:layout_height="wrap_content"
+            >
+
+            <EditText
+                android:id="@+id/edCardHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/brownlight"
+                android:hint="CARDHOLDER NAME"
+                android:textSize="14sp"
+                android:textAllCaps="true"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textColorHint="@color/pickerview_wheelview_textcolor_out" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="30dp"
+            android:textAllCaps="true"
+            android:layout_gravity="center"
+            android:id="@+id/btnAddCard"
+            android:textColor="@color/whiteColor"
+            android:fontFamily="@font/brownregular"
+            android:text="@string/add_card"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/bluebg_button"
+            android:layout_height="40dp" />
+
+
+
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/rlView"
+        android:background="@color/appColor"
+        android:layout_height="40dp">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:id="@+id/ivBackArrow"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:tint="@color/lightblue"
+            app:srcCompat="@drawable/ic_back"
+            android:layout_centerVertical="true"
+            android:layout_height="30dp" />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_toRightOf="@+id/ivBackArrow"
+            app:srcCompat="@drawable/ic_right_arrow"
+            android:tint="@color/whiteColor"
+            android:id="@+id/ivRightarrow"
+            android:padding="5dp"
+            android:layout_centerVertical="true"
+            android:layout_height="30dp"
+            android:layout_toEndOf="@+id/ivBackArrow" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/brownregular"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/whiteColor"
+            android:text="Done"
+            android:letterSpacing=".2"
+            android:layout_alignParentEnd="true"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

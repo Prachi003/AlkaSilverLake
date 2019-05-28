@@ -1,0 +1,274 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.alkline.alkasilverlake.activity.MapsActivity" >
+
+
+    <fragment
+        android:layout_width="match_parent"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:id="@+id/map"
+        android:layout_height="match_parent"/>
+
+
+    <RelativeLayout
+        android:id="@+id/rlClose"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_white_bag">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp"
+            android:src="@drawable/ic_close"
+            android:tint="@color/black_new" />
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/whiteColor"
+        android:id="@+id/rlAddressView"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            map:cardMaxElevation="4dp"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:id="@+id/llDot"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="8dp"
+                        android:background="@drawable/light_gray_circrle"
+                        android:layout_height="8dp">
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="8dp"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/light_gray_circrle"
+                        android:layout_height="8dp"
+                        android:layout_marginStart="4dp">
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="8dp"
+                        android:layout_marginLeft="6dp"
+                        android:background="@drawable/light_gray_circrle"
+                        android:layout_height="8dp"
+                        android:layout_marginStart="4dp">
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_margin="10dp"
+                    android:padding="5dp"
+                    android:id="@+id/rlAddress"
+                    android:background="@drawable/gray_placeholder"
+                    android:layout_height="35dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_centerVertical="true"
+                        android:id="@+id/ivSearch"
+                        android:src="@drawable/search_ico"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="5dp" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:id="@+id/txtAddress"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+
+                        android:layout_toRightOf="@+id/ivSearch"
+                        android:layout_marginLeft="8dp"
+                        android:layout_centerVertical="true"
+                        android:textColor="@color/black_new"
+                        android:hint="@string/city_state_zip_or_delivery_address"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_toEndOf="@+id/ivSearch" />
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="120dp"
+                        android:id="@+id/llPickUp"
+
+                        android:background="@drawable/button_blue_bag"
+                        android:layout_height="32dp">
+
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:id="@+id/ivPickUp"
+                            android:tint="@color/whiteColor"
+                            android:layout_marginLeft="5dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/inactive_pick_up_ico"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="5dp" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:text="@string/pick_up"
+                            android:id="@+id/txtPickUp"
+                            android:gravity="end"
+
+                            android:layout_gravity="center"
+                            android:textColor="@color/whiteColor"
+                            android:fontFamily="@font/brownregular"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="120dp"
+                        android:layout_marginLeft="1dp"
+                        android:id="@+id/llDelivery"
+
+                        android:background="@drawable/button_pickup_placeholder"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="1dp">
+
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:id="@+id/ivDelivery"
+                            android:layout_marginLeft="5dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/inactive_delivery_ico"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="5dp" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="@string/delivery"
+                            android:gravity="center"
+                            android:id="@+id/txtDelivery"
+                            android:layout_gravity="center"
+                            android:textColor="@color/black_new"
+                            android:fontFamily="@font/brownregular"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llViewAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="@font/brownregular"
+                        android:text="@string/most_recent"
+                        android:textAllCaps="true"
+
+                        android:textSize="20sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/darkGrayColor" />
+
+                    <TextView
+                        android:id="@+id/txtAddressDelivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/brownlight"
+                        android:text="@string/most_recent"
+
+                        android:textSize="18sp" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp" />
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+
+        </android.support.v7.widget.CardView>
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

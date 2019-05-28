@@ -1,0 +1,73 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/whiteColor</item>
+        <item name="colorPrimaryDark">@color/whiteColor</item>
+        <item name="colorAccent">@color/appColor</item>
+    </style>
+
+    <style name="HeaderBar">
+        <item name="android:background">#303F9F</item>
+    </style>
+
+    <style name="TextView_black">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/grayMostDark</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="TextView_brown">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/grayMostDark</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="TextView_gray">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/darkGrayColor</item>
+    </style>
+
+    <style name="TextView_black_14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/grayMostDark</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="TextView_blue_bold">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/appColor</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <!--Add Property Info-->
+    <style name="editext">
+        <item name="android:textColor">@color/grayMostDark</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <!--Button-->
+    <style name="button">
+        <item name="android:background">@drawable/disp_edit</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/whiteColor</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <!--Payment Activity --><!--Calender Them-->
+    <style name="calender_dialog_theme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/appColor</item>
+    </style>
+
+    <style name="RadioButtonStyle" parent="AppTheme">
+        <item name="colorControlNormal">@color/colorLightGray</item>
+        <item name="colorAccent">@color/appColor</item>
+
+    </style>
+
+    <style name="AuthTheme" parent="AppTheme">
+        <item name="colorPrimaryDark">@color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+    </style>
+</resources>

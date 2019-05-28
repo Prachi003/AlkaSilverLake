@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/RecselectedItem_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="1dp"
+    app:clickToClose="true">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cartRecdelete_post"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        card_view:cardBackgroundColor="@color/red"
+        card_view:cardUseCompatPadding="true"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:fontFamily="@font/brownbold"
+                android:textColor="@color/whiteColor"
+                android:text="DELETE"
+                />
+
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        card_view:cardBackgroundColor="@color/whiteColor"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="15dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/cart_inc_li1"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:weightSum="3"
+                >
+
+                <ImageView
+                    android:id="@+id/cart_iv_geo_sub"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:padding="7dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/sub"
+                    app:srcCompat="@drawable/ic_remove_black_24dp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/cart_tv_geo_quntituy"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/brownregular"
+                    android:textStyle="bold"
+                    android:background="@drawable/inc_number"
+                    android:textColor="@color/grayMostDark"
+                    android:text="1"
+                    />
+
+
+                <ImageView
+                    android:id="@+id/cart_iv_geo_add"
+                    android:layout_width="0dp"
+                    android:padding="7dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:background="@drawable/add"
+                    app:srcCompat="@drawable/ic_add_black_24dp"
+                    />
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/cart_geo_item_delete"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:scaleType="centerInside"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/circlewhite"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/ic_delete" />
+
+            <ImageView
+                android:id="@+id/cart_geo_item_edit"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_toLeftOf="@+id/cart_geo_item_delete"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/circlewhite"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/ic_edit" />
+
+            <LinearLayout
+                android:id="@+id/pl_ll"
+                android:layout_below="@+id/cart_inc_li1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="7dp"
+
+                >
+
+
+
+
+                <TextView
+                    android:id="@+id/cart_geo_qty"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="1"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center"
+                    android:background="@drawable/greenback"
+                    android:layout_marginLeft="6dp"
+                    android:fontFamily="@font/brownbold"
+                    android:textColor="@color/whiteColor"
+                    android:layout_weight=".10"
+                    android:textSize="12sp" />
+
+
+                <TextView
+                    android:id="@+id/cart_geodelivery_new_used"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:gravity="center"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/greenback"
+                    android:layout_weight=".12"
+                    android:fontFamily="@font/brownregular"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/cart_geodelivery_product"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:gravity="center"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/greenback"
+                    android:layout_weight=".3"
+                    android:fontFamily="@font/brownregular"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/product"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/cart_deliverygeo_price"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:gravity="center"
+                    android:background="@drawable/greenback"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/brownregular"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/watertype"
+                    android:textColor="@color/whiteColor"
+                    android:layout_weight=".2"
+                    android:textSize="12sp" />
+
+
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+
+</com.daimajia.swipe.SwipeLayout>

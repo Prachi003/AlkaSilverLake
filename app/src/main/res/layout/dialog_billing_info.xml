@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/whiteColor"
+        android:layout_height="180dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/recurring_payment_authorization"
+                android:textColor="@color/appColor"
+                android:textAllCaps="true"
+                android:gravity="center"
+                android:textSize="12sp"
+                android:layout_marginTop="18dp"
+                android:letterSpacing=".2"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/brownregular"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="@string/we_will_debit_your_account_each_agreed_autopayment_date_no_debit_will_be_made_if_you_have_zero_balance_account_balance_when_the_autopayment_begins_processing_we_generally_begin_processing_your_autopay_payment_on_the_day_of_request"
+                android:textColor="@color/darkGrayColor"
+                android:textSize="10sp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:layout_marginTop="60dp"
+                android:id="@+id/txtInfo"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/brownregular"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:id="@+id/btnOrderNow"
+                android:layout_gravity="center"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="30dp"
+                android:layout_below="@+id/txtInfo"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btnappcolorback"
+                android:fontFamily="@font/brownlight"
+                android:gravity="center"
+
+                android:letterSpacing=".20"
+                android:text="Continue"
+                android:textAllCaps="true"
+                android:textColor="@color/whiteColor"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Not Now"
+                android:id="@+id/txtNotNow"
+                android:fontFamily="@font/brownregular"
+                android:textColor="@color/darkGrayColor"
+                android:textAllCaps="true"
+                android:layout_below="@+id/btnOrderNow"
+                android:layout_height="wrap_content" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

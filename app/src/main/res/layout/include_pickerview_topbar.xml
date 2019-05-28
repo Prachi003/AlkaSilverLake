@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/constraint"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/pickerview_bg_topbar">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="@color/pickerview_topbar_title"
+        android:textSize="@dimen/pickerview_topbar_title_textsize" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/appColor"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tvTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_vertical|start"
+        android:paddingLeft="@dimen/pickerview_topbar_paddingleft"
+        android:letterSpacing=".5"
+
+        android:fontFamily="@font/brownregular"
+        android:paddingRight="@dimen/pickerview_topbar_paddingright"
+
+        android:text="@string/pickerview_cancel"
+        android:textColor="@color/whiteColor"
+        android:textSize="16sp" />
+
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tvTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/appColor"
+        android:gravity="center_vertical|end"
+        android:paddingLeft="@dimen/pickerview_topbar_paddingright"
+        android:letterSpacing=".5"
+
+        android:fontFamily="@font/brownregular"
+        android:paddingRight="@dimen/pickerview_topbar_paddingleft"
+        android:text="@string/pickerview_submit"
+        android:textColor="@color/whiteColor"
+        android:textSize="14sp" />
+</android.support.constraint.ConstraintLayout>
