@@ -17,7 +17,7 @@
 
         <ImageView
             android:layout_width="20dp"
-            android:id="@+id/ivAddCart"
+            android:id="@+id/ivStatusIcon"
             android:src="@drawable/circlewhite"
             android:layout_height="20dp" />
 
@@ -25,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_height="20dp"
+            android:textSize="12sp"
             android:text="2 day ago"
             android:fontFamily="@font/brownlight"
             android:id="@+id/txtDateTime"
@@ -34,9 +35,9 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_below="@+id/ivAddCart"
+            android:layout_below="@+id/ivStatusIcon"
             android:text="08/09/1995"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:id="@+id/txtStatus"
             android:textAllCaps="true"
             android:textColor="@color/colorGreen"
@@ -48,10 +49,10 @@
             android:layout_width="wrap_content"
             android:layout_below="@+id/txtStatus"
             android:text="08/09/1995"
-            android:textSize="14sp"
+            android:textAllCaps="false"
 
             android:id="@+id/txtMessage"
-            android:textAllCaps="true"
+            android:textSize="12sp"
             android:textColor="@color/darkGrayColor"
             android:fontFamily="@font/brownregular"
             android:layout_marginTop="5dp"

@@ -49,6 +49,16 @@ public class NotificationModel {
         private String title;
         private String type;
         private String order_id;
+
+        private String invoice_id;
+
+        public String getInvoice_id() {
+            return invoice_id;
+        }
+
+        public void setInvoice_id(String invoice_id) {
+            this.invoice_id = invoice_id;
+        }
         private String message;
         private String is_read;
         private String current;

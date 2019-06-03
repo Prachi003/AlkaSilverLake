@@ -69,7 +69,6 @@ public class FavoriteFragment extends BaseFragment implements HistoryAdapter.onc
     private Handler handler = new Handler(Looper.myLooper());
 
 
-
     public FavoriteFragment() {
         // Required empty public constructor
     }
@@ -192,9 +191,7 @@ public class FavoriteFragment extends BaseFragment implements HistoryAdapter.onc
                         String stresult = Objects.requireNonNull(response.body()).string();
                         Log.i("eail4254", "" + stresult);
                         JSONObject jsonObject = new JSONObject(stresult);
-
                         String statusCode = jsonObject.optString("status");
-                        String msg = jsonObject.optString("message");
                         productsBeanList.clear();
                         if (statusCode.equals("success")) {
                             Gson gson = new Gson();
@@ -218,7 +215,7 @@ public class FavoriteFragment extends BaseFragment implements HistoryAdapter.onc
                             txtNoHistory.setText(R.string.no_fav);
                             txtNoHistory.setVisibility(View.VISIBLE);
 
-                            Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
+                            // Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -447,9 +444,6 @@ public class FavoriteFragment extends BaseFragment implements HistoryAdapter.onc
         });
 
     }
-
-
-
 
 
 }

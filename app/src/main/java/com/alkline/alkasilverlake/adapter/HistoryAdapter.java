@@ -23,52 +23,40 @@ import java.util.List;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
 
-    private List<HistoryModel.DataBean>productsBeanList;
-    private List<HistoryModel.DataBean.ProductsBean>productsBeans=new ArrayList<>();
+    private List<HistoryModel.DataBean> productsBeanList;
+    private List<HistoryModel.DataBean.ProductsBean> productsBeans = new ArrayList<>();
     private Context context;
-   private onclickListener onclickListener;
+    private onclickListener onclickListener;
 
 
-    public HistoryAdapter(List<HistoryModel.DataBean>productsBeanList,Context context,onclickListener onclickListener){
-        this.productsBeanList=productsBeanList;
-        this.context=context;
-        this.onclickListener=onclickListener;
-
-    }
-
-    public interface  onclickListener{
-        void getPos(int position);
-        void getAddCartPos(int position,boolean isSelected);
-    }
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(context).inflate(R.layout.adapter_history, viewGroup, false);
-        return new ViewHolder(v);
+    public HistoryAdapter(List<HistoryModel.DataBean> productsBeanList, Context context, onclickListener onclickListener) {
+        this.productsBeanList = productsBeanList;
+        this.context = context;
+        this.onclickListener = onclickListener;
 
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        HistoryModel.DataBean productsBean=productsBeanList.get(i);
-        String []date=productsBean.getCrd().split(" ");
-        String dateSplitt=date[0];
+        HistoryModel.DataBean productsBean = productsBeanList.get(i);
+        String[] date = productsBean.getCrd().split(" ");
+        String dateSplitt = date[0];
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");//yyyy-MM-dd'T'HH:mm:ss
         @SuppressLint("SimpleDateFormat") SimpleDateFormat output = new SimpleDateFormat("dd/MM/yyyy");
         Date data;
-        String formattedTime="";
+        String formattedTime = "";
         try {
             data = sdf.parse(dateSplitt);
-             formattedTime = output.format(data);
+            formattedTime = output.format(data);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        if (productsBean.getFavourite().equals("1")){
+        if (productsBean.getFavourite().equals("1")) {
             viewHolder.ivFav.setImageResource(R.drawable.ic_like);
-            viewHolder.txtDate.setText(MessageFormat.format("{0}- {1}", formattedTime, productsBean.getComment()));
+            viewHolder.txtDate.setText(MessageFormat.format("{0} - {1}", formattedTime, productsBean.getComment()));
 
 
-        }else {
+        } else {
             viewHolder.ivFav.setImageResource(R.drawable.ic_heart);
             viewHolder.txtDate.setText(formattedTime);
 
@@ -76,13 +64,12 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         }
 
 
-        if (productsBean.isSelect()){
+        if (productsBean.isSelect()) {
 
             viewHolder.ivAddCart.setImageResource(R.drawable.active_check_ico);
-        }
-        else {
+        } else {
             //else remove selected item color.
-            viewHolder.ivAddCart.setImageResource(R.drawable.circlewhite);
+            viewHolder.ivAddCart.setImageResource(R.drawable.bold_circlewhite);
 
         }
         productsBeans.clear();
@@ -102,12 +89,26 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         }
 
         viewHolder.recyclerData.setLayoutManager(new LinearLayoutManager(context));
-        viewHolder.recyclerData.setAdapter(new ProductAdapter(productsBeans,context,"history"));
+        viewHolder.recyclerData.setAdapter(new ProductAdapter(productsBeans, context, "history"));
         //viewHolder.txtProduct.setText(MessageFormat.format("-{0} Gallon {1} Bottles of {2}", productsBean.getUnit_type(), productsBean.getBottle_type(), productsBean.getWater_name()));
 
 
         //viewHolder.txtCount.setText(productsBean.getProducts().get());
 
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(context).inflate(R.layout.adapter_history, viewGroup, false);
+        return new ViewHolder(v);
+
+    }
+
+    public interface onclickListener {
+        void getPos(int position);
+
+        void getAddCartPos(int position, boolean isSelected);
     }
 
     @Override
@@ -126,12 +127,12 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtCount=itemView.findViewById(R.id.txtCount);
-            txtDate=itemView.findViewById(R.id.txtDate);
-            txtProduct=itemView.findViewById(R.id.txtProduct);
-            ivFav=itemView.findViewById(R.id.ivFav);
-            ivAddCart=itemView.findViewById(R.id.ivAddCart);
-            recyclerData=itemView.findViewById(R.id.recyclerData);
+            txtCount = itemView.findViewById(R.id.txtCount);
+            txtDate = itemView.findViewById(R.id.txtDate);
+            txtProduct = itemView.findViewById(R.id.txtProduct);
+            ivFav = itemView.findViewById(R.id.ivFav);
+            ivAddCart = itemView.findViewById(R.id.ivAddCart);
+            recyclerData = itemView.findViewById(R.id.recyclerData);
             ivFav.setOnClickListener(this);
             ivAddCart.setOnClickListener(this);
 
@@ -139,58 +140,23 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
         @Override
         public void onClick(View view) {
-            switch (view.getId()){
+            switch (view.getId()) {
                 case R.id.ivFav:
                     onclickListener.getPos(getAdapterPosition());
                     break;
 
                 case R.id.ivAddCart:
-                    HistoryModel.DataBean dataBean=productsBeanList.get(getAdapterPosition());
+                    HistoryModel.DataBean dataBean = productsBeanList.get(getAdapterPosition());
                     dataBean.setSelect(!dataBean.isSelect());
-                    onclickListener.getAddCartPos(getAdapterPosition(),false);
+                    onclickListener.getAddCartPos(getAdapterPosition(), false);
                     notifyItemChanged(getAdapterPosition());
 
-                  /*  HistoryModel.DataBean productsBean=productsBeanList.get(getAdapterPosition());
-
-                    if (isSelect){
-                        productsBean.isSelect=true;
-                        isSelect=false;
-                        onclickListener.getAddCartPos(getAdapterPosition(),false);
-                        notifyDataSetChanged();
-                    }else {
-                        productsBean.isSelect=false;
-                        isSelect=true;
-                        onclickListener.getAddCartPos(getAdapterPosition(),false);
-                        notifyDataSetChanged();
-
-                    }*/
-
-
-                    /*if (isSelect){
-                        ivAddCart.setImageResource(R.drawable.active_check_ico);
-                        isSelect = false;
-                        productsBeanList.get(getAdapterPosition()).isSelect=true;
-                        onclickListener.getAddCartPos(getAdapterPosition(),true);
-                        notifyDataSetChanged();
-                    }else {
-                        ivAddCart.setImageResource(R.drawable.circlewhite);
-                        isSelect=true;
-
-                        productsBean.isSelect=false;
-                        productsBeanList.get(getAdapterPosition()).isSelect=false;
-                        onclickListener.getAddCartPos(getAdapterPosition(),false);
-                        notifyDataSetChanged();
-
-                    }*/
 
                     break;
             }
 
         }
     }
-
-
-
 
 
 }

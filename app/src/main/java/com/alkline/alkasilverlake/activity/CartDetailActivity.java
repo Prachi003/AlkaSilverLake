@@ -44,18 +44,19 @@ public class CartDetailActivity extends BaseActivity implements View.OnClickList
     List<RecycleOrder> recycleOrderArrayList = new ArrayList<>();
     List<RecycleOrder> getallrecOrder = new ArrayList<>();
     float totalAdd = 0;
+    float totalAddProduct = 0;
     float totalRecycler = 0;
-    int miles=0;
-    String deilevryfee="";
+    int miles = 0;
+    String deilevryfee = "";
     private TextView tvDelivery;
     double taxPrice = 0;
     float finalPrice = 0;
     float distance = 0;
-    float total=0;
+    float total = 0;
     TextView txtOrderTotalPrice;
     TextView txtTaxPrice;
     RelativeLayout rlCount;
-    TextView txtFinalPrice, txtCount,tvSubTotal;
+    TextView txtFinalPrice, txtCount, tvSubTotal;
     private UserInfoModel userInfoModel;
     private GestureDetector gestureDetector;
 
@@ -124,11 +125,6 @@ public class CartDetailActivity extends BaseActivity implements View.OnClickList
     }
 
 
-
-
-
-
-
     private void updateUi() {
 
         new Thread(() -> {
@@ -178,6 +174,7 @@ public class CartDetailActivity extends BaseActivity implements View.OnClickList
             for (int i = 0; i < getallOrder.size(); i++) {
                 taxPrice = (Double.valueOf(getallOrder.get(i).getProduct_price()) / 100.0f) * 9.5;
                 totalAdd += Float.parseFloat(getallOrder.get(i).getProduct_price()) + taxPrice;
+                totalAddProduct += Float.parseFloat(getallOrder.get(i).getProduct_price());
 
             }
 
@@ -222,16 +219,18 @@ public class CartDetailActivity extends BaseActivity implements View.OnClickList
             }
 
             finalPrice = totalAdd - totalRecycler;
-            if (!session.getDeliveryFee().equals("")){
-                total=Float.parseFloat(session.getDeliveryFee())+finalPrice+Float.parseFloat(String.valueOf(taxPrice));
+            if (!session.getDeliveryFee().equals("")) {
+                total = Float.parseFloat(session.getDeliveryFee()) + finalPrice + Float.parseFloat(String.valueOf(taxPrice));
 
             }
 
+            totalAddProduct = totalAddProduct - totalRecycler;
+
             handler.post(() -> {
-                txtOrderTotalPrice.setText(String.format("$    %s", finalPrice));
-                tvDelivery.setText(String.format("$   %s",session.getDeliveryFee()));
+                txtOrderTotalPrice.setText(String.format("$    %s", totalAddProduct));
+                tvDelivery.setText(String.format("$   %s", session.getDeliveryFee()));
                 txtFinalPrice.setText(String.format("$    %s", total));
-                tvSubTotal.setText(String.format("$  %s",total));
+                tvSubTotal.setText(String.format("$  %s", total));
                 txtTaxPrice.setText(String.format("$    %s", taxPrice));
                 if (getallOrder.size() != 0) {
                     rlCount.setVisibility(View.VISIBLE);
@@ -278,8 +277,6 @@ public class CartDetailActivity extends BaseActivity implements View.OnClickList
                             txtTaxPrice.setText(String.format("$    %s", taxPrice));
                             txtTaxPrice.setText(String.format("$    %s", "0"));
                             tvSubTotal.setText(String.format("$  %s", "0"));
-
-
 
 
                         });
@@ -389,7 +386,6 @@ public class CartDetailActivity extends BaseActivity implements View.OnClickList
                             tvSubTotal.setText(String.format("$  %s", "0"));
 
 
-
                         });
                     }
 
@@ -402,72 +398,72 @@ public class CartDetailActivity extends BaseActivity implements View.OnClickList
                 break;
 
             case R.id.llCheckOut:
-                if (session.isLoggedIn()) {
-                    Intent intent = new Intent(CartDetailActivity.this, CheckOutActivity.class);
-                    intent.putExtra("grand_total",String.valueOf(total));
-                    startActivity(intent);
+                if (addOrderArrayList.size() == 0) {
+                    Toast.makeText(this, "Please Add Product", Toast.LENGTH_SHORT).show();
+                }
 
-                } else {
+                if (session.isLoggedIn() && addOrderArrayList.size() != 0) {
+                    Intent intent = new Intent(CartDetailActivity.this, CheckOutActivity.class);
+                    intent.putExtra("grand_total", String.valueOf(total));
+                    startActivity(intent);
+                } else if (!session.isLoggedIn() && addOrderArrayList.size() > 0) {
                     Toast.makeText(this, "Please Login First", Toast.LENGTH_SHORT).show();
                 }
                 break;
 
             case R.id.txtEditAdd:
-                Intent intent=new Intent(CartDetailActivity.this,TabActivity.class);
-                intent.putExtra("from","");
+                Intent intent = new Intent(CartDetailActivity.this, TabActivity.class);
+                intent.putExtra("from", "");
                 startActivity(intent);
                 break;
 
             case R.id.txtEditRecycler:
 
-                Intent intent1=new Intent(CartDetailActivity.this,TabActivity.class);
-                intent1.putExtra("from","");
+                Intent intent1 = new Intent(CartDetailActivity.this, TabActivity.class);
+                intent1.putExtra("from", "");
                 startActivity(intent1);
                 break;
 
         }
     }
+
     public void getDistance() {
-        Session session=new Session(CartDetailActivity.this);
+        Session session = new Session(CartDetailActivity.this);
 
-        if (session.isLoggedIn()){
+        if (session.isLoggedIn()) {
             new Thread(() -> {
-             UserInfoModel   userInfoModel = dataManager().userinfo(session.getRegistration().getId());
-             if (userInfoModel.getDeliveryLatitude()!=null||userInfoModel.getBillingLatitude()!=null){
-                 Location startPoint = new Location("locationA");
-                     startPoint.setLatitude(Double.valueOf(userInfoModel.getDeliveryLatitude()));            //(34.095735);
-                     startPoint.setLongitude(Double.valueOf(userInfoModel.getDeliveryLongitude()));          //(-118.282898);
+                UserInfoModel userInfoModel = dataManager().userinfo(session.getRegistration().getId());
+                if (userInfoModel.getDeliveryLatitude() != null || userInfoModel.getBillingLatitude() != null) {
+                    Location startPoint = new Location("locationA");
+                    startPoint.setLatitude(Double.valueOf(userInfoModel.getDeliveryLatitude()));            //(34.095735);
+                    startPoint.setLongitude(Double.valueOf(userInfoModel.getDeliveryLongitude()));          //(-118.282898);
 
-                     Location endPoint = new Location("locationA");
-                     endPoint.setLatitude(Double.parseDouble(session.getLatitude()));
-                     endPoint.setLongitude(Double.parseDouble(session.getLongitude()));
-                     distance = startPoint.distanceTo(endPoint);
-                     float m = (float) (distance*0.000621);
-                     miles= Math.round(m);
-                     session.putMiles(String.valueOf(miles));
-                     if (m>Float.parseFloat(session.getMinCharge()))
-                     {
-                         float deliveydiff = m-Float.parseFloat(session.getMinDistance());
-                         float addconfirmamount = Float.parseFloat(session.getMinCharge())+deliveydiff*Float.parseFloat(session.getExtraMileCharge());
-                         deilevryfee = String.valueOf(addconfirmamount);
-                     }
-                     else
-                     {
-                         deilevryfee = String.valueOf(session.getMinCharge());
-                     }
-                     session.putDeLiveryFee(deilevryfee);
+                    Location endPoint = new Location("locationA");
+                    endPoint.setLatitude(Double.parseDouble(session.getLatitude()));
+                    endPoint.setLongitude(Double.parseDouble(session.getLongitude()));
+                    distance = startPoint.distanceTo(endPoint);
+                    float m = (float) (distance * 0.000621);
+                    miles = Math.round(m);
+                    session.putMiles(String.valueOf(miles));
+                    if (m > Float.parseFloat(session.getMinCharge())) {
+                        float deliveydiff = m - Float.parseFloat(session.getMinDistance());
+                        float addconfirmamount = Float.parseFloat(session.getMinCharge()) + deliveydiff * Float.parseFloat(session.getExtraMileCharge());
+                        deilevryfee = String.valueOf(addconfirmamount);
+                    } else {
+                        deilevryfee = String.valueOf(session.getMinCharge());
+                    }
+                    session.putDeLiveryFee(deilevryfee);
 
 
-
-             }else {
-                 handler.post(() -> Toast.makeText(CartDetailActivity.this, "Please Add delivery address and Billing Address", Toast.LENGTH_SHORT).show());
-             }
+                } else {
+                    handler.post(() -> Toast.makeText(CartDetailActivity.this, "Please Add delivery address and Billing Address", Toast.LENGTH_SHORT).show());
+                }
 
 
             }).start();
 
         }
-       // m= Math.round(distance);
+        // m= Math.round(distance);
 
 
     }

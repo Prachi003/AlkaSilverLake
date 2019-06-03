@@ -59,7 +59,7 @@
     <string name="geo">RECYCLE &amp; GET A DISCOUNT</string>
     <string name="aslProduct">(A.S.L PRODUCTS ONLY,DISCOUNT WILL BE APPLIED AFTER DELIVERY)</string>
     <string name="rec">RECYCLE</string>
-    <string name="product_add_text">no product added tap + to add an order</string>
+    <string name="product_add_text">no product added \n tap + to add an order</string>
     <string name="optional">(optional)</string>
     <string name="back">BACK</string>
 
@@ -163,8 +163,13 @@
     <string name="hours_ago">hours ago</string>
     <string name="minute_ago">minutes ago</string>
     <string name="second_ago">seconds ago</string>
-    <string name="pick_up_from">PICK UP FROM</string>
+    <string name="pick_up_from">PICKUP FROM</string>
     <string name="most_recent">Most Recent</string>
+    <string name="order_created">ORDER CREATRED SUCCESSFULLY</string>
+    <string name="payment_successful">PAYMENT SUCCESSFUL</string>
+    <string name="delivery_in_transir">DELIVERY IN TRANSIT</string>
+    <string name="order_delivered">ORDER DELIVERED</string>
+    <string name="no_notifications_found">No Notifications Found</string>
 
 
 </resources>

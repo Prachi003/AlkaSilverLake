@@ -37,7 +37,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         HistoryModel.DataBean.ProductsBean productsBean=productsBeanList.get(i);
-        viewHolder.txtProduct.setText(MessageFormat.format("-{0} Gallon {1} Bottles of {2}", productsBean.getUnit_type(), productsBean.getBottle_type(), productsBean.getWater_name()));
+        viewHolder.txtProduct.setText(MessageFormat.format("{0} Gallon {1} Bottles of {2}", productsBean.getUnit_type(), productsBean.getBottle_type(), productsBean.getWater_name()));
         viewHolder.txtCount.setText(productsBean.getQuantity());
         if (from.equals("address")){
           viewHolder.llItem.setGravity(Gravity.CENTER);

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="35dp">
 
         <ImageView
             android:layout_width="35dp"
@@ -24,7 +24,7 @@
             tools:ignore="ContentDescription" />
 
         <LinearLayout
-            android:layout_width="150dp"
+            android:layout_width="180dp"
             android:layout_height="30dp"
             android:layout_centerInParent="true"
             android:background="@drawable/btnback"
@@ -35,8 +35,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/brownregular"
+                android:fontFamily="@font/brownlight"
                 android:gravity="center"
+                android:letterSpacing=".23"
                 android:text="PICKUP"
                 android:textColor="@color/appColor"
                 android:textSize="10sp"
@@ -47,9 +48,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="2dp"
-                android:fontFamily="@font/brownregular"
+                android:fontFamily="@font/brownbold"
                 android:gravity="center"
                 android:text="OR"
+                android:letterSpacing=".22"
                 android:textColor="@color/appColor"
                 android:textSize="10sp" />
 
@@ -57,8 +59,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:fontFamily="@font/brownlight"
                 android:layout_marginLeft="2dp"
-                android:fontFamily="@font/brownregular"
+                android:letterSpacing=".23"
                 android:gravity="center"
                 android:text="DELIVERY"
                 android:textColor="@color/appColor"
@@ -99,13 +102,13 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="210dp"
+        android:layout_height="230dp"
         android:id="@+id/rlOrderClick"
         android:layout_centerInParent="true">
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="80dp"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="7dp"
             android:layout_marginStart="7dp"
@@ -143,8 +146,9 @@
                 <View
                     android:layout_width="1dp"
                     android:layout_height="12dp"
-                    android:layout_gravity="bottom"
-                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+
+
                     android:background="@color/darkGrayColor" />
 
 
@@ -171,8 +175,9 @@
         <android.support.v7.widget.CardView
             android:id="@+id/setting_card"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="160dp"
             android:layout_marginEnd="5dp"
+            android:layout_marginTop="45dp"
             android:layout_marginStart="5dp"
             app:cardBackgroundColor="@color/whiteColor"
             app:cardCornerRadius="26dp"
@@ -189,7 +194,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="25dp"
                     android:orientation="vertical"
 
                     >
@@ -213,12 +218,11 @@
                         android:layout_marginEnd="30dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginStart="30dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_toRightOf="@+id/rtv_account"
+                        android:layout_marginTop="5dp"
                         android:fontFamily="@font/brownbold"
                         android:gravity="center"
                         android:text="@string/quality"
-                        android:textColor="#000"
+                        android:textColor="@color/darkGrayColor"
                         android:textSize="16sp" />
 
 
@@ -229,7 +233,7 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="30dp"
                         android:layout_marginStart="30dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="20dp"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/btnappcolorback"
                         android:fontFamily="@font/brownbold"

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/rlParent"
     tools:context="com.alkline.alkasilverlake.activity.MapsActivity" >
 
 
@@ -29,7 +30,7 @@
             android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
             android:padding="5dp"
-            android:src="@drawable/ic_close"
+            map:srcCompat="@drawable/ic_close"
             android:tint="@color/black_new" />
 
     </RelativeLayout>

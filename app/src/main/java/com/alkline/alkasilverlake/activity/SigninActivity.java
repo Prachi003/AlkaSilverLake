@@ -80,7 +80,7 @@ public class SigninActivity extends BaseActivity implements View.OnClickListener
 
             if (editable == logemail.getEditableText() && editable.length() >= 1) {
                 emailLayout.setHint(getResources().getString(R.string.email));
-                emailLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.gray_light_new)));
+                emailLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorgray)));
                 if (!android.util.Patterns.EMAIL_ADDRESS.matcher(logemail.getText().toString()).matches()) {
                     emailLayout.setHint(getResources().getString(R.string.emailInvalidError));
                     emailLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.red)));
@@ -116,8 +116,8 @@ public class SigninActivity extends BaseActivity implements View.OnClickListener
         log_cancel = findViewById(R.id.log_cancel);
         logemail.addTextChangedListener(textWatcher_email);
         logpassword.addTextChangedListener(textWatcher_pass);
-        emailLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.gray_light_new)));
-        passwordLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.gray_light_new)));
+        emailLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorgray)));
+        passwordLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorgray)));
 
 
         setclick();

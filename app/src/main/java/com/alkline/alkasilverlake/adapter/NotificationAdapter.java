@@ -2,11 +2,18 @@ package com.alkline.alkasilverlake.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alkline.alkasilverlake.R;
@@ -36,7 +43,41 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         NotificationModel.DataBean dataBean=dataBeans.get(i);
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat =
+                new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        switch (dataBean.getType()) {
+            case "Order":
+                viewHolder.ivStatusIcon.setImageResource(R.drawable.round_delivered_btn);
+                viewHolder.txtStatus.setText(R.string.order_created);
+                viewHolder.txtStatus.setTextColor(ContextCompat.getColor(context, R.color.appColor));
+
+                break;
+            case "Payment":
+                viewHolder.ivStatusIcon.setImageResource(R.drawable.ic_round_done_button);
+                viewHolder.txtStatus.setText(R.string.payment_successful);
+                viewHolder.txtStatus.setTextColor(ContextCompat.getColor(context, R.color.colorGreen));
+
+
+                break;
+            case "Delivery":
+                viewHolder.ivStatusIcon.setImageResource(R.drawable.ic_yellow_arrow_ico);
+                viewHolder.txtStatus.setText(R.string.delivery_in_transir);
+                viewHolder.txtStatus.setTextColor(ContextCompat.getColor(context, R.color.orangecolor));
+
+
+                break;
+            default:
+                viewHolder.ivStatusIcon.setImageResource(R.drawable.round_delivered_btn);
+                viewHolder.txtStatus.setText(R.string.order_delivered);
+                viewHolder.txtStatus.setTextColor(ContextCompat.getColor(context, R.color.appColor));
+                break;
+
+
+        }
+
+
+
+
 
         try {
             Date date1 = simpleDateFormat.parse(dataBean.getCrd());
@@ -47,10 +88,33 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
             e.printStackTrace();
         }
 
+
+        if (dataBean.getMessage().contains(dataBean.getInvoice_id())) {
+            int startingPosition = dataBean.getMessage().indexOf(dataBean.getInvoice_id());
+            int endingPosition = startingPosition + dataBean.getInvoice_id().length();
+            Spannable WordtoSpan = new SpannableString(dataBean.getMessage());
+            WordtoSpan.setSpan(new ForegroundColorSpan(Color.BLACK), startingPosition, endingPosition, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            WordtoSpan.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), startingPosition, endingPosition, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            viewHolder.txtMessage.setText(WordtoSpan);
+        } else {
+            viewHolder.txtMessage.setText(dataBean.getMessage());
+        }
+
+
         viewHolder.txtStatus.setText(dataBean.getTitle());
-        viewHolder.txtMessage.setText(dataBean.getMessage());
+        // viewHolder.txtMessage.setText(dataBean.getMessage());
 
     }
+
+    /*public static Spanned getBoldString(String textNotBoldFirst, String textToBold, String textNotBoldLast) {
+        String resultant = null;
+
+        resultant = textNotBoldFirst + " " + "<b>" + textToBold + "</b>" + " " + textNotBoldLast;
+
+        return Html.fromHtml(resultant);
+
+    }*/
+
 
     @Override
     public int getItemCount() {
@@ -61,11 +125,13 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         TextView txtStatus;
         TextView txtMessage;
         TextView txtDateTime;
+        ImageView ivStatusIcon;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtStatus=itemView.findViewById(R.id.txtStatus);
             txtMessage=itemView.findViewById(R.id.txtMessage);
             txtDateTime=itemView.findViewById(R.id.txtDateTime);
+            ivStatusIcon = itemView.findViewById(R.id.ivStatusIcon);
         }
     }
 

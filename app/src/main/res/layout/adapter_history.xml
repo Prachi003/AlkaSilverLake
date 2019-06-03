@@ -17,8 +17,9 @@
 
             <ImageView
                 android:layout_width="20dp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/ivAddCart"
-                android:src="@drawable/circlewhite"
+                android:src="@drawable/bold_circlewhite"
                 android:layout_height="20dp" />
 
             <ImageView
@@ -27,6 +28,7 @@
                 app:srcCompat="@drawable/ic_heart"
                 android:layout_height="20dp"
                 android:id="@+id/ivFav"
+                android:layout_marginTop="10dp"
                 android:tint="@color/darkGrayColor"
                 android:layout_alignParentRight="true" />
 
@@ -37,7 +39,7 @@
                 android:textSize="20sp"
                 android:id="@+id/txtDate"
                 android:textAllCaps="true"
-                android:textColor="@color/darkGrayColor"
+                android:textColor="@color/pickerview_topbar_title"
                 android:fontFamily="@font/brownbold"
                 android:layout_marginTop="5dp"
                 android:layout_height="wrap_content" />
@@ -46,6 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_below="@+id/txtDate"
                 android:id="@+id/recyclerData"
+                android:layout_marginBottom="20sp"
                 android:layout_height="wrap_content">
 
             </android.support.v7.widget.RecyclerView>

@@ -165,6 +165,12 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         iv_del_Req_Add.setOnClickListener(v -> {
             myOptionsPickerView = new MyOptionsPickerView(mContext);
             updateUi(waterlist);
+            /*if (addOrderList.size()==0){
+                updateUionFirst(waterlist);
+            }else {
+                updateUi(waterlist);
+            }*/
+
         });
         ivProfile.setOnClickListener(v -> {
             Intent intent = new Intent(mContext, UserProfileActivity.class);
@@ -212,8 +218,13 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                 break;
 
             case R.id.rlCart:
-                Intent cart = new Intent(mContext, CartDetailActivity.class);
-                startActivityForResult(cart, 101);
+                if (addOrderList.size() == 0) {
+                    Toast.makeText(mContext, "Please Add Product", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent cart = new Intent(mContext, CartDetailActivity.class);
+                    startActivityForResult(cart, 101);
+
+                }
                 break;
 
 
@@ -486,7 +497,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         assert typeface != null;
         myOptionsPickerView.setCustomFont(typeface);
         myOptionsPickerView.setCancelable(false);
-        myOptionsPickerView.method("New", mContext);
+        myOptionsPickerView.method("New", mContext, addOrderList);
         myOptionsPickerView.setSubmitButtonText("Add");
         myOptionsPickerView.setCyclic(false, false, false);
         myOptionsPickerView.setOnoptionsSelectListener((options1, option2, options3) -> {
@@ -517,7 +528,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         });
 
     }
-
 
     private void alertAddProduct() {
         final Session session = Alkasilverlake.getInstance().getSessionManager();
@@ -652,7 +662,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         assert typeface != null;
         myOptionsPickerView.setCustomFont(typeface);
         myOptionsPickerView.setCancelable(false);
-        myOptionsPickerView.method("New", mContext);
+        myOptionsPickerView.method("New", mContext, addOrderList);
         int conditionPosition = 0;
         int bottleCondition = 0;
         int waterCondition = 0;
@@ -780,7 +790,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         myOptionsPickerViewRecycler.setSubmitButtonText("Add");
         myOptionsPickerViewRecycler.setOnoptionsSelectListener((options1, option2, options3) -> {
             bnameRecycler = recycleBottlelist.get(option2).getRecycle_type();
-
             bottleId = recycleBottlelist.get(option2).getRecycleBottleId();
             priceRecycler = recycleBottlelist.get(option2).getPrice();
             totalPriceRecycler = Float.parseFloat(recycleBottlelist.get(option2).getPrice()) * testCountRecycle;

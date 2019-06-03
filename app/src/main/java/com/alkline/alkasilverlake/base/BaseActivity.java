@@ -55,7 +55,6 @@ import java.util.List;
 @SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity implements BaseListner, BaseFragment.Callback {
 
-    private boolean keyboardListenersAttached = false;
     private ViewGroup rootLayout;
     protected FusedLocationProviderClient mFusedLocationClient;
     protected LocationRequest locationRequest;
@@ -111,6 +110,55 @@ public class BaseActivity extends AppCompatActivity implements BaseListner, Base
     }
 
 
+    private ViewTreeObserver.OnGlobalLayoutListener keyboardLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
+        @Override
+        public void onGlobalLayout() {
+            int heightDiff = rootLayout.getRootView().getHeight() - rootLayout.getHeight();
+            int contentViewTop = getWindow().findViewById(Window.ID_ANDROID_CONTENT).getTop();
+
+            LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(BaseActivity.this);
+
+            if (heightDiff <= contentViewTop) {
+                onHideKeyboard();
+                Intent intent = new Intent("KeyboardWillHide");
+                broadcastManager.sendBroadcast(intent);
+            } else {
+                int keyboardHeight = heightDiff - contentViewTop;
+                onShowKeyboard();
+                Intent intent = new Intent("KeyboardWillShow");
+                intent.putExtra("KeyboardHeight", keyboardHeight);
+                broadcastManager.sendBroadcast(intent);
+            }
+        }
+    };
+
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    public void hideKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm != null) {
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+        }
+    }
+
+    public void hideLoading() {
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.cancel();
+        }
+    }
+
+
+    public AppDataManager dataManager() {
+        return Alkasilverlake.getDataManager();
+    }
+
     protected void onGpsAutomatic() {
         int permissionLocation = ContextCompat.checkSelfPermission(activity,
                 Manifest.permission.ACCESS_FINE_LOCATION);
@@ -149,10 +197,9 @@ public class BaseActivity extends AppCompatActivity implements BaseListner, Base
                                     if (location != null) {
                                         // Logic to handle location object
                                         setLatLng(location);
-                                    } else {
-                                        //Location not available
-                                        // AppLogger.e("Test", "Location not available");
-                                    }
+                                    }  //Location not available
+                                    // AppLogger.e("Test", "Location not available");
+
                                 });
                     }
                 } catch (ApiException exception) {
@@ -185,59 +232,8 @@ public class BaseActivity extends AppCompatActivity implements BaseListner, Base
 
     }
 
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onShowKeyboard() {
     }
-
-    public void hideKeyboard() {
-        View view = this.getCurrentFocus();
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            if (imm != null) {
-                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-            }
-        }
-    }
-
-    public void hideLoading() {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.cancel();
-        }
-    }
-
-
-    public AppDataManager dataManager(){
-        return Alkasilverlake.getDataManager();
-    }
-
-
-
-    private ViewTreeObserver.OnGlobalLayoutListener keyboardLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
-        @Override
-        public void onGlobalLayout() {
-            int heightDiff = rootLayout.getRootView().getHeight() - rootLayout.getHeight();
-            int contentViewTop = getWindow().findViewById(Window.ID_ANDROID_CONTENT).getTop();
-
-            LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(BaseActivity.this);
-
-            if(heightDiff <= contentViewTop){
-                onHideKeyboard();
-                Intent intent = new Intent("KeyboardWillHide");
-                broadcastManager.sendBroadcast(intent);
-            } else {
-                int keyboardHeight = heightDiff - contentViewTop;
-                onShowKeyboard(keyboardHeight);
-                Intent intent = new Intent("KeyboardWillShow");
-                intent.putExtra("KeyboardHeight", keyboardHeight);
-                broadcastManager.sendBroadcast(intent);
-            }
-        }
-    };
-
-
-    protected void onShowKeyboard(int keyboardHeight) {}
     protected void onHideKeyboard() {}
 
 
@@ -246,6 +242,7 @@ public class BaseActivity extends AppCompatActivity implements BaseListner, Base
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        boolean keyboardListenersAttached = false;
         if (keyboardListenersAttached) {
             rootLayout.getViewTreeObserver().removeGlobalOnLayoutListener(keyboardLayoutListener);
         }

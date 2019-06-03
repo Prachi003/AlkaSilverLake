@@ -129,7 +129,7 @@
                         android:id="@+id/rlCount"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:layout_marginRight="5dp"
+                        android:layout_marginEnd="5dp"
                         android:background="@drawable/circleredfill"
                         android:visibility="gone">
 
@@ -231,7 +231,7 @@
                         android:layout_width="0dp"
                         android:layout_weight=".3"
                         android:gravity="center"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/brownregular"
                         android:text="@string/product"
@@ -243,7 +243,7 @@
                         android:layout_width="0dp"
                         android:layout_weight=".3"
                         android:gravity="center"
-                        android:layout_marginRight="7dp"
+                        android:layout_marginEnd="7dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/brownregular"
                         android:text="@string/watertype"
@@ -281,7 +281,7 @@
                                 android:layout_marginEnd="40dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="50dp"
-                                android:fontFamily="@font/brownregular"
+                                android:fontFamily="@font/brownlight"
                                 android:text="@string/product_add_text"
                                 android:textColor="@color/gray_light"
                                 android:textSize="14sp" />
@@ -330,11 +330,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/brownbold"
+                        android:fontFamily="@font/brownlight"
                         android:text="@string/aslProduct"
                         android:layout_below="@+id/text"
                         android:layout_marginTop="30dp"
-                        android:textColor="@color/grayMostDark"
+
+                        android:textColor="@color/darkGrayColor"
                         android:textSize="10sp" />
 
 
@@ -429,7 +430,7 @@
                                 android:layout_marginStart="40dp"
                                 android:layout_marginEnd="40dp"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/brownregular"
+                                android:fontFamily="@font/brownlight"
                                 android:text="@string/product_add_text"
                                 android:textColor="@color/gray_light"
                                 android:textSize="14sp" />
@@ -443,7 +444,7 @@
                                 android:layout_marginEnd="40dp"
                                 android:layout_marginTop="15dp"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/brownregular"
+                                android:fontFamily="@font/brownlight"
                                 android:text="@string/optional"
                                 android:textColor="@color/gray_light"
                                 android:textSize="14sp" />

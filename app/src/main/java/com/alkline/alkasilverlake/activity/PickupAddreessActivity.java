@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,6 +56,7 @@ public class PickupAddreessActivity extends BaseActivity implements View.OnClick
     private List<HistoryModel.DataBean> productsBeanList = new ArrayList<>();
     private ProductAdapter productAdapter;
     private TextView tvRecordMyLast;
+
     private TextView tvDate;
     private TextView tv_signin;
     private ImageView ivCart;
@@ -76,6 +78,7 @@ public class PickupAddreessActivity extends BaseActivity implements View.OnClick
     public void initView() {
         txtPickUpaddress = findViewById(R.id.txtPickUpaddress);
         tvRecordMyLast = findViewById(R.id.tvRecordMyLast);
+        LinearLayout llViewAddress = findViewById(R.id.llViewAddress);
         tvDate = findViewById(R.id.tvDate);
         tv_signin = findViewById(R.id.tv_signin);
         Button btnMenu = findViewById(R.id.btnMenu);
@@ -92,6 +95,7 @@ public class PickupAddreessActivity extends BaseActivity implements View.OnClick
         rlLastOrders.setOnClickListener(this);
         ivCart.setOnClickListener(this);
         rlOrderClick.setOnClickListener(this);
+        llViewAddress.setOnClickListener(this);
         setting_card.setOnClickListener(this);
         tvViewOrder.setOnClickListener(this);
         rlLastOrdersNew.setOnClickListener(this);
@@ -251,8 +255,37 @@ public class PickupAddreessActivity extends BaseActivity implements View.OnClick
                 break;
 
             case R.id.ivCart:
-                Intent intent = new Intent(PickupAddreessActivity.this, CartDetailActivity.class);
-                startActivity(intent);
+                new Thread(() -> {
+                    if (session.isLoggedIn()) {
+                        final List<AddOrder> getallOrder = dataManager().loadAllProductlist(session.getRegistration().getId());
+                        //cartProductlistAdapter.setList(getallOrder);
+
+                        handler.post(() -> {
+                            if (getallOrder.size() == 0) {
+                                Toast.makeText(this, "Please Add Product", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Intent intent = new Intent(PickupAddreessActivity.this, CartDetailActivity.class);
+                                startActivity(intent);
+
+                            }
+                        });
+                    } else {
+                        final List<AddOrder> getallOrder = dataManager().loadAllProductlist("000");
+                        //cartProductlistAdapter.setList(getallOrder);
+
+                        handler.post(() -> {
+                            if (getallOrder.size() == 0) {
+                                Toast.makeText(this, "Please Add Product", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Intent intent = new Intent(PickupAddreessActivity.this, CartDetailActivity.class);
+                                startActivity(intent);
+
+                            }
+                        });
+
+                    }
+
+                }).start();
                 break;
 
 
@@ -264,6 +297,11 @@ public class PickupAddreessActivity extends BaseActivity implements View.OnClick
                 Intent intent1 = new Intent(PickupAddreessActivity.this, TabActivity.class);
                 intent1.putExtra("from", "addrees");
                 startActivity(intent1);
+                break;
+
+            case R.id.llViewAddress:
+                Intent intentAdd = new Intent(PickupAddreessActivity.this, MapsActivity.class);
+                startActivity(intentAdd);
                 break;
 
         }

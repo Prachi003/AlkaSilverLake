@@ -105,7 +105,7 @@ public class CartGeoRecycleProductlistAdapter extends RecyclerView.Adapter<CartG
             cart_iv_delivery_add = itemView.findViewById(R.id.cart_iv_geo_add);
             swipeLayout = itemView.findViewById(R.id.RecselectedItem_view);
             cardView = itemView.findViewById(R.id.cartRecdelete_post);
-            swipeLayout.setSwipeEnabled(false);
+            // swipeLayout.setSwipeEnabled(false);
 
             cart_iv_delivery_sub.setOnClickListener(v -> recSubproductqty.getsubpos(getAdapterPosition()));
 

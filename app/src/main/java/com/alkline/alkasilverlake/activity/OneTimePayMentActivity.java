@@ -85,14 +85,19 @@ public class OneTimePayMentActivity extends AppCompatActivity implements View.On
         RelativeLayout llDate = findViewById(R.id.llDatePick);
         edCardHolder = findViewById(R.id.edCardHolder);
         Button btnAdd = findViewById(R.id.btnAdd);
+
         DisplayMetrics displaymetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
         width = displaymetrics.widthPixels;
+/*
         RelativeLayout rlView = findViewById(R.id.rlView);
         rlView.setVisibility(View.GONE);
+*/
         edDateTime.setOnClickListener(this);
+
         edt_card_no.setOnClickListener(this);
         btnAdd.setOnClickListener(this);
+
         llDate.setOnClickListener(this);
         ivClose.setOnClickListener(this);
         if (getIntent() != null) {
@@ -168,7 +173,7 @@ public class OneTimePayMentActivity extends AppCompatActivity implements View.On
                 showMonthYearDialog();
                 break;
 
-            case R.id.btnAddCard:
+            case R.id.btnAdd:
                 if (checkValidation()) {
                     if (pDialog.checkInternetConnection(OneTimePayMentActivity.this)) {
                         new AsyncTaskRunner().execute();

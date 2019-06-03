@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import com.alkline.alkasilverlake.R;
 import com.alkline.alkasilverlake.Session;
 import com.alkline.alkasilverlake.activity.CartDetailActivity;
+import com.alkline.alkasilverlake.activity.TabActivity;
 import com.alkline.alkasilverlake.adapter.NotificationAdapter;
 import com.alkline.alkasilverlake.base.BaseFragment;
 import com.alkline.alkasilverlake.connection.RetrofitClient;
@@ -68,12 +70,14 @@ public class NotificationFragment extends BaseFragment implements View.OnClickLi
         RecyclerView recyclerNotification = view.findViewById(R.id.recyclerNotification);
         RelativeLayout rlCart = view.findViewById(R.id.rlCart);
         ImageView ivProfilenew = view.findViewById(R.id.ivProfilenew);
+        Button btnMenu = view.findViewById(R.id.btnMenu);
         txtNoNotification = view.findViewById(R.id.txtNoNotification);
         recyclerNotification.setLayoutManager(new LinearLayoutManager(mContext));
         notificationAdapter = new NotificationAdapter(mContext, dataBeanList);
         recyclerNotification.setAdapter(notificationAdapter);
         rlCart.setOnClickListener(this);
         ivProfilenew.setOnClickListener(this);
+        btnMenu.setOnClickListener(this);
         getNotification();
 
 
@@ -161,6 +165,12 @@ public class NotificationFragment extends BaseFragment implements View.OnClickLi
             case R.id.ivProfilenew:
                 Intent intent1 = new Intent(mContext, UserProfileActivity.class);
                 startActivity(intent1);
+                break;
+
+            case R.id.btnMenu:
+                Intent intent2 = new Intent(mContext, TabActivity.class);
+                intent2.putExtra("from", "");
+                startActivity(intent2);
                 break;
 
 

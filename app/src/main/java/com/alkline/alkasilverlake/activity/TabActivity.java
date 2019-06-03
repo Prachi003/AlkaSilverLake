@@ -62,6 +62,7 @@ public class TabActivity extends BaseActivity implements View.OnClickListener,Vi
         history.setOnClickListener(this);
         favorite.setOnClickListener(this);
         notification.setOnClickListener(this);
+
         if (getIntent() != null) {
             from = getIntent().getStringExtra("from");
             if (getIntent().getStringExtra("type") != null) {

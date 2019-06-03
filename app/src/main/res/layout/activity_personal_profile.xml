@@ -75,6 +75,7 @@
                         android:layout_width="0dp"
                         android:textAllCaps="true"
                         android:layout_weight=".50"
+                        android:letterSpacing=".23"
                         android:text="@string/first_name"
                         android:textSize="14sp"
                         android:layout_centerVertical="true"
@@ -88,7 +89,10 @@
                         android:layout_width="0dp"
                         android:background="@null"
                         android:layout_weight=".50"
+                        android:imeOptions="actionNext"
+
                         android:textSize="12sp"
+
                         android:gravity="end"
                         android:layout_gravity="end"
                         android:fontFamily="@font/brownregular"
@@ -133,6 +137,8 @@
                         android:layout_width="0dp"
                         android:textAllCaps="true"
                         android:text="Last Name"
+                        android:letterSpacing=".23"
+
                         android:textSize="14sp"
                         android:layout_weight=".50"
                         android:layout_centerVertical="true"
@@ -146,8 +152,12 @@
                         android:background="@null"
                         android:focusableInTouchMode="true"
                         android:textSize="12sp"
+                        android:imeOptions="actionNext"
+
+
                         android:layout_weight=".50"
                         android:layout_gravity="end"
+
                         android:gravity="end"
                         android:inputType="textPersonName"
 
@@ -196,6 +206,8 @@
                         android:textSize="14sp"
                         android:layout_weight=".50"
                         android:text="@string/email_new"
+                        android:letterSpacing=".23"
+
                         android:layout_centerVertical="true"
                         android:textColor="@color/appColor"
                         android:fontFamily="@font/brownregular"
@@ -208,7 +220,11 @@
                         android:background="@null"
                         android:textColor="@color/darkGrayColor"
                         android:textSize="12sp"
+                        android:imeOptions="actionNext"
+
                         android:layout_weight=".50"
+
+
                         android:layout_gravity="end"
                         android:gravity="end"
                         android:fontFamily="@font/brownregular"
@@ -301,6 +317,7 @@
                         android:layout_width="0dp"
                         android:textAllCaps="true"
                         android:layout_weight=".50"
+                        android:letterSpacing=".23"
 
                         android:text="@string/phone"
                         android:layout_centerVertical="true"
@@ -316,9 +333,14 @@
                         android:textSize="12sp"
                         android:layout_weight=".50"
                         android:gravity="end"
+
+                        android:imeOptions="actionDone"
+
                         android:layout_gravity="end"
+
                         android:inputType="number"
                         android:hint="Phone"
+
                         android:fontFamily="@font/brownregular"
                         android:id="@+id/edtMobile"
                         android:textColor="@color/darkGrayColor"
@@ -358,6 +380,8 @@
                         android:textAllCaps="true"
                         android:text="@string/birthday"
                         android:layout_weight=".50"
+                        android:letterSpacing=".23"
+
 
                         android:textColor="@color/appColor"
                         android:fontFamily="@font/brownregular"
@@ -408,6 +432,8 @@
                     android:textAllCaps="true"
                     android:text="@string/delivery_information"
                     android:layout_centerVertical="true"
+                    android:letterSpacing=".23"
+
                     android:textColor="@color/appColor"
                     android:fontFamily="@font/brownregular"
                     android:layout_height="wrap_content" />
@@ -505,6 +531,8 @@
                     android:textAllCaps="true"
                     android:text="@string/billing_information"
                     android:layout_centerVertical="true"
+                    android:letterSpacing=".23"
+
                     android:textColor="@color/appColor"
                     android:fontFamily="@font/brownregular"
                     android:layout_height="wrap_content" />
@@ -599,6 +627,8 @@
                 android:textColor="@color/whiteColor"
                 android:fontFamily="@font/brownregular"
                 android:text="Update profile"
+                android:letterSpacing=".23"
+
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
                 android:background="@drawable/bluebg_button"

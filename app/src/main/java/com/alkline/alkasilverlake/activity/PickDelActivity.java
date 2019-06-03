@@ -3,6 +3,8 @@ package com.alkline.alkasilverlake.activity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -21,10 +23,12 @@ import com.alkline.alkasilverlake.base.BaseActivity;
 import com.alkline.alkasilverlake.connection.RetrofitClient;
 import com.alkline.alkasilverlake.helper.PDialog;
 import com.alkline.alkasilverlake.profile.UserProfileActivity;
+import com.alkline.alkasilverlake.roomdatabasemodel.AddOrder;
 import com.alkline.alkasilverlake.utils.OnSwipeListener;
 
 import org.json.JSONObject;
 
+import java.util.List;
 import java.util.Objects;
 
 import okhttp3.ResponseBody;
@@ -36,6 +40,7 @@ public class PickDelActivity extends BaseActivity implements View.OnClickListene
     private GestureDetector gestureDetector;
     private PDialog pDialog;
     private Session session;
+    private Handler handler = new Handler(Looper.myLooper());
 
 
     @Override
@@ -139,8 +144,37 @@ public class PickDelActivity extends BaseActivity implements View.OnClickListene
                 break;
 
             case R.id.ivCart:
-                Intent intent1 = new Intent(PickDelActivity.this, CartDetailActivity.class);
-                startActivity(intent1);
+                new Thread(() -> {
+                    if (session.isLoggedIn()) {
+                        final List<AddOrder> getallOrder = dataManager().loadAllProductlist(session.getRegistration().getId());
+                        //cartProductlistAdapter.setList(getallOrder);
+
+                        handler.post(() -> {
+                            if (getallOrder.size() == 0) {
+                                Toast.makeText(this, "Please Add Product", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Intent intent1 = new Intent(PickDelActivity.this, CartDetailActivity.class);
+                                startActivity(intent1);
+
+                            }
+                        });
+                    } else {
+                        final List<AddOrder> getallOrder = dataManager().loadAllProductlist("000");
+                        //cartProductlistAdapter.setList(getallOrder);
+
+                        handler.post(() -> {
+                            if (getallOrder.size() == 0) {
+                                Toast.makeText(this, "Please Add Product", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Intent intent1 = new Intent(PickDelActivity.this, CartDetailActivity.class);
+                                startActivity(intent1);
+
+                            }
+                        });
+
+                    }
+
+                }).start();
                 break;
 
 

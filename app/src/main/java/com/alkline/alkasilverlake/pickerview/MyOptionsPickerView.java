@@ -15,8 +15,10 @@ import com.alkline.alkasilverlake.model.RecycleBottleData;
 import com.alkline.alkasilverlake.model.WaterNameData;
 import com.alkline.alkasilverlake.pickerview.view.BasePickerView;
 import com.alkline.alkasilverlake.pickerview.view.MyWheelOptions;
+import com.alkline.alkasilverlake.roomdatabasemodel.AddOrder;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Ramesh Bhupathi on 17/05/16.
@@ -65,10 +67,12 @@ public class MyOptionsPickerView  extends BasePickerView implements View.OnClick
         wheelOptions.setPickerRecycler(recycleBottleData,linkage);
     }
 
-    public void method(String add,Context context){
-        if (add.equals("New")) {
+    public void method(String add, Context context, List<AddOrder> addOrderList) {
+        if (add.equals("New") && addOrderList.size() != 0) {
             getConstraintLayout().setBackgroundColor(context.getResources().getColor(R.color.appColor));
-        }else {
+        } else if (addOrderList.size() == 0 && add.equals("New")) {
+            getConstraintLayout().setBackgroundColor(context.getResources().getColor(R.color.colorGreen));
+        } else {
             getConstraintLayout().setBackgroundColor(context.getResources().getColor(R.color.colorGreen));
         }
     }

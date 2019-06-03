@@ -50,13 +50,6 @@ public class MyOptionPickerViewNew extends BasePickerView implements View.OnClic
 
 
 
-    public void setPicker(ArrayList<String> options1Items,
-                          ArrayList<BottleData> options2Items,
-                          ArrayList<WaterNameData> options3Items,
-                          boolean linkage) {
-        wheelOptions.setPicker(options1Items, options2Items, options3Items,
-                linkage);
-    }
 
     public void setPickerRe(ArrayList<BottleData> options1Items,
                             ArrayList<RecycleBottleData> options2Items,
@@ -79,10 +72,22 @@ public class MyOptionPickerViewNew extends BasePickerView implements View.OnClic
         }
     }
 
+
     @Override
     public void setCustomFont(@NonNull Typeface typeface){
         wheelOptions.setCustomTypeface(typeface);
     }
+
+
+    public void setPicker(ArrayList<String> options1Items,
+                          ArrayList<BottleData> options2Items,
+                          ArrayList<WaterNameData> options3Items,
+                          boolean linkage) {
+        wheelOptions.setPicker(options1Items, options2Items, options3Items,
+                linkage);
+    }
+
+
 
     /**
      * 设置选中的item位置

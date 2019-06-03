@@ -142,7 +142,7 @@
 
                 <Button
                     android:id="@+id/btsignin"
-                    android:layout_width="match_parent"
+                    android:layout_width="180dp"
                     android:layout_height="25dp"
                     android:layout_below="@+id/birthtext"
                     android:layout_centerHorizontal="true"

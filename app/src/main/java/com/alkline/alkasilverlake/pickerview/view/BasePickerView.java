@@ -140,13 +140,13 @@ public abstract class BasePickerView {
 
     private void initViews(){
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        decorView = (ViewGroup) ((Activity)context).getWindow().getDecorView().findViewById(android.R.id.content);
+        decorView = ((Activity) context).getWindow().getDecorView().findViewById(android.R.id.content);
         rootView = (ViewGroup) layoutInflater.inflate(R.layout.layout_basepickerview, decorView, false);
         rootView.setLayoutParams(new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
         ));
-        overlayFrameLayout = (FrameLayout) rootView.findViewById(R.id.outmost_container);
-        contentContainer = (ViewGroup) rootView.findViewById(R.id.content_container);
+        overlayFrameLayout = rootView.findViewById(R.id.outmost_container);
+        contentContainer = rootView.findViewById(R.id.content_container);
         contentContainer.setLayoutParams(params);
     }
 
@@ -264,4 +264,5 @@ public abstract class BasePickerView {
     public View findViewById(int id){
         return contentContainer.findViewById(id);
     }
+
 }

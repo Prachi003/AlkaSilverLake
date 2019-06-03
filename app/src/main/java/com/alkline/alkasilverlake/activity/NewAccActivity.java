@@ -56,7 +56,9 @@ import retrofit2.Callback;
 
 public class NewAccActivity extends BaseActivity implements View.OnClickListener {
 
-    Pattern PASSWORD_PATTERN = Pattern.compile("^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,100}$");
+    //Pattern PASSWORD_PATTERN = Pattern.compile("^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,100}$");
+    Pattern PASSWORD_PATTERN = Pattern.compile("[a-zA-Z0-9!@#$]{8,}");
+
     private EditText firstname, lastname, email, mobnumber, password, birth;
     private TextInputLayout firstnameLayout;
     private TextInputLayout lastnameLayout;
@@ -84,7 +86,7 @@ public class NewAccActivity extends BaseActivity implements View.OnClickListener
             ll_fullpassword.setVisibility(View.GONE);
             if (editable == firstname.getEditableText() && editable.length() >= 1) {
                 firstnameLayout.setHint(getResources().getString(R.string.fname));
-                firstnameLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.darkGrayColor)));
+                firstnameLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorgray)));
 
             } else {
                 firstnameLayout.setHint(getResources().getString(R.string.fnameerror));
@@ -211,7 +213,6 @@ public class NewAccActivity extends BaseActivity implements View.OnClickListener
                     toggleFlag = true;
                     passwordToggleView.setColorFilter(ContextCompat.getColor(NewAccActivity.this,R.color.red),PorterDuff.Mode.SRC_IN);
                 }
-//                tvpasserror.setVisibility(View.GONE);
                 if (!PASSWORD_PATTERN.matcher(password.getText().toString()).matches()) {
                     if (!toggleFlag) {
                         toggleFlag = true;
@@ -310,12 +311,6 @@ public class NewAccActivity extends BaseActivity implements View.OnClickListener
         email.setOnClickListener(this);
         mobnumber.setOnClickListener(this);
 
-        /*String fnlay = Objects.requireNonNull(firstnameLayout.getEditText()).getText().toString();
-        String lnlay = lastnameLayout.getEditText().getText().toString();
-        String emlay = Objects.requireNonNull(emailLayout.getEditText()).getText().toString();
-        String passlay = passwordLayout.getEditText().getText().toString();
-        String moblay = mobnumberLayout.getEditText().getText().toString();
-        String birlay = birthLayout.getEditText().getText().toString();*/
 
 
         firstnameLayout.setHint(getResources().getString(R.string.fname));
@@ -326,12 +321,12 @@ public class NewAccActivity extends BaseActivity implements View.OnClickListener
         birthLayout.setHint(getResources().getString(R.string.birth));
 
 
-        firstnameLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.gray_light_new)));
-        lastnameLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.gray_light_new)));
-        emailLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.gray_light_new)));
-        passwordLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.gray_light_new)));
-        mobnumberLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.gray_light_new)));
-        birthLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.gray_light_new)));
+        firstnameLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorgray)));
+        lastnameLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorgray)));
+        emailLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorgray)));
+        passwordLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorgray)));
+        mobnumberLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorgray)));
+        birthLayout.setDefaultHintTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorgray)));
 
         Typeface typeface = ResourcesCompat.getFont(this, R.font.brownlight);
 

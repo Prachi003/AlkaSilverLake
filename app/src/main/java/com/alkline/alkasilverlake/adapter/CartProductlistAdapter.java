@@ -68,7 +68,7 @@ public class CartProductlistAdapter extends RecyclerView.Adapter<CartProductlist
         holder.delivery_new_used.setText(addOrder.getBottlecon());
         holder.cart_tv_delivery_quntituy.setText(addOrder.getNo_bottle());
 
-        if (position == 0) {
+        /*if (position == 0) {
             holder.delivery_qty.setBackgroundResource(R.drawable.greenback);
             holder.delivery_watertype.setBackgroundResource(R.drawable.greenback);
             holder.delivery_product.setBackgroundResource(R.drawable.greenback);
@@ -81,7 +81,7 @@ public class CartProductlistAdapter extends RecyclerView.Adapter<CartProductlist
             holder.delivery_product.setBackgroundResource(R.drawable.button_blue_bag);
             holder.delivery_new_used.setBackgroundResource(R.drawable.button_blue_bag);
             // holder.cart_tv_delivery_quntituy.setBackgroundResource(R.drawable.button_blue_bag);
-        }
+        }*/
 
 
 
@@ -116,7 +116,7 @@ public class CartProductlistAdapter extends RecyclerView.Adapter<CartProductlist
             cart_iv_delivery_add = itemView.findViewById(R.id.cart_iv_delivery_add);
             cartdelete_post = itemView.findViewById(R.id.cartdelete_post);
             swipeLayout = itemView.findViewById(R.id.selectedItem_view);
-            swipeLayout.setSwipeEnabled(false);
+            swipeLayout.setSwipeEnabled(true);
 
             cart_iv_delivery_sub.setOnClickListener(v -> subproductqty.getsubposition(getAdapterPosition()));
 

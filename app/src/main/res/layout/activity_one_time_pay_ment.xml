@@ -34,7 +34,7 @@
         <ImageView
             android:layout_width="30dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:id="@+id/ivClose"
 
             android:layout_centerVertical="true"

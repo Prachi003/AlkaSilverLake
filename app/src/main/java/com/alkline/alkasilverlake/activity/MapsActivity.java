@@ -18,7 +18,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.DisplayMetrics;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.TranslateAnimation;
@@ -26,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alkline.alkasilverlake.Constant;
 import com.alkline.alkasilverlake.R;
@@ -35,6 +38,7 @@ import com.alkline.alkasilverlake.helper.PDialog;
 import com.alkline.alkasilverlake.roomdatabase.AppDataManager;
 import com.alkline.alkasilverlake.roomdatabasemodel.UserInfoModel;
 import com.alkline.alkasilverlake.utils.AddressLocationTask;
+import com.alkline.alkasilverlake.utils.OnSwipeListener;
 import com.alkline.alkasilverlake.utils.Permission;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -47,12 +51,12 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResponse;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.Task;
@@ -62,11 +66,13 @@ import java.util.Objects;
 
 import static com.alkline.alkasilverlake.Constant.MY_PERMISSIONS_REQUEST_LOCATION;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
+public class MapsActivity extends AppCompatActivity implements
+        OnMapReadyCallback, View.OnTouchListener, View.OnClickListener {
 
     private GoogleMap mMap;
     private LinearLayout llPickUp;
     private LinearLayout llDelivery;
+    private GestureDetector detector;
     private ImageView ivPickUp;
     private ImageView ivDelivery;
     private TextView txtDelivery;
@@ -132,6 +138,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void initView() {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -153,6 +160,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         txtPickUp = findViewById(R.id.txtPickUp);
         llDelivery = findViewById(R.id.llDelivery);
         ivDelivery = findViewById(R.id.ivDelivery);
+
         txtDelivery = findViewById(R.id.txtDelivery);
         llPickUp.setOnClickListener(this);
         llDelivery.setOnClickListener(this);
@@ -161,7 +169,29 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         pDialog = new PDialog();
         rlAddress.setOnClickListener(this);
         rlClose.setOnClickListener(this);
+        findViewById(R.id.rlParent).setOnTouchListener(this);
+        findViewById(R.id.rlParent).setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                Toast.makeText(this, "Down", Toast.LENGTH_SHORT).show();
+            }
+            return false;
+        });
 
+        detector = new GestureDetector(MapsActivity.this, new OnSwipeListener() {
+
+            @Override
+            public boolean onSwipe(Direction direction) {
+
+                if (direction == Direction.down) {
+                    Toast.makeText(MapsActivity.this, "Down", Toast.LENGTH_SHORT).show();
+
+                }
+
+                return true;
+            }
+
+
+        });
 
 
     }
@@ -241,14 +271,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         pointPickUp = new LatLng(newLatPickUp, newLngPickUp);
 
         markerOptionsPickUp.position(pointPickUp);
-        final CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(pointPickUp)      // Sets the center of the map to Mountain View
-                .zoom(13)                   // Sets the zoom
-                .bearing(90)                // Sets the orientation of the camera to east
-                .tilt(30)                   // Sets the tilt of the camera to 30 degrees
-                .build();
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(pointPickUp, 13);
 
-        mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+        mMap.animateCamera(cameraUpdate);
+/*
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(13));
+*/
         mMap.addMarker(markerOptionsPickUp.icon(BitmapDescriptorFactory.fromBitmap(finalBitmapPickUp)));
 
 
@@ -330,15 +358,24 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             //  txtAddressDelivery.setText(addressBilling);
                             LatLng pointPickUp;
                             pointPickUp = new LatLng(finalNewLatPickUp, finalNewLngPickUp);
+                            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(pointPickUp, 13);
+                            @SuppressLint("InflateParams") View markerView = LayoutInflater.from(this).inflate(R.layout.custom_marker_layout, null);
+                            DisplayMetrics displayMetrics = new DisplayMetrics();
 
-                            final CameraPosition cameraPosition = new CameraPosition.Builder()
-                                    .target(pointPickUp)      // Sets the center of the map to Mountain View
-                                    .zoom(13)                   // Sets the zoom
-                                    .bearing(90)                // Sets the orientation of the camera to east
-                                    .tilt(30)                   // Sets the tilt of the camera to 30 degrees
-                                    .build();
+                            markerView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                            markerView.measure(displayMetrics.widthPixels, displayMetrics.heightPixels);
+                            markerView.layout(0, 0, displayMetrics.widthPixels, displayMetrics.heightPixels);
+                            markerView.buildDrawingCache();
+                            Bitmap finalBitmap = Bitmap.createBitmap(markerView.getMeasuredWidth(), markerView.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+                            Canvas canvas = new Canvas(finalBitmap);
+                            markerView.draw(canvas);
+                            MarkerOptions markerOptions = new MarkerOptions();
+                            markerOptions.position(pointPickUp);
 
-                            mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                            mMap.addMarker(markerOptions.icon(BitmapDescriptorFactory.fromBitmap(finalBitmap)));
+
+
+                            mMap.animateCamera(cameraUpdate);
                             if (isChangedAddress) {
                                 txtCurrentAddress.setText(addressBilling);
                             } else {
@@ -366,15 +403,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 txtAddress.setText(session.getAddress());
                 LatLng pointPickUp;
                 pointPickUp = new LatLng(Double.valueOf(session.getLatitude()), Double.valueOf(session.getLongitude()));
-
-                final CameraPosition cameraPosition = new CameraPosition.Builder()
-                        .target(pointPickUp)      // Sets the center of the map to Mountain View
-                        .zoom(13)                   // Sets the zoom
-                        .bearing(90)                // Sets the orientation of the camera to east
-                        .tilt(30)                   // Sets the tilt of the camera to 30 degrees
-                        .build();
-
-                mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(pointPickUp, 13);
+                mMap.animateCamera(cameraUpdate);
 
                 break;
 
@@ -424,7 +454,33 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                     }
                     dataManager().updateDeliveryAddress(addressBilling, localUserInfo.getDeliveryCountry(), localUserInfo.getDeliveryState(), String.valueOf(newLatPickUp), String.valueOf(newLngPickUp), Integer.parseInt(session.getRegistration().getId()));
-                    handler.post(this::onBackPressed);
+                    double finalNewLatPickUp = newLatPickUp;
+                    double finalNewLngPickUp = newLngPickUp;
+                    handler.post(() -> {
+
+                        LatLng latLng;
+                        latLng = new LatLng(finalNewLatPickUp, finalNewLngPickUp);
+                        CameraUpdate cameraUpdate1 = CameraUpdateFactory.newLatLngZoom(latLng, 13);
+                        mMap.animateCamera(cameraUpdate1);
+
+                        @SuppressLint("InflateParams") View markerView = LayoutInflater.from(this).inflate(R.layout.custom_marker_layout, null);
+                        DisplayMetrics displayMetrics = new DisplayMetrics();
+
+                        markerView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                        markerView.measure(displayMetrics.widthPixels, displayMetrics.heightPixels);
+                        markerView.layout(0, 0, displayMetrics.widthPixels, displayMetrics.heightPixels);
+                        markerView.buildDrawingCache();
+                        Bitmap finalBitmap = Bitmap.createBitmap(markerView.getMeasuredWidth(), markerView.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+                        Canvas canvas = new Canvas(finalBitmap);
+                        markerView.draw(canvas);
+                        MarkerOptions markerOptions = new MarkerOptions();
+                        markerOptions.position(latLng);
+
+                        mMap.addMarker(markerOptions.icon(BitmapDescriptorFactory.fromBitmap(finalBitmap)));
+
+                        onBackPressed();
+
+                    });
                 }).start();
 
 
@@ -476,6 +532,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             new AddressLocationTask(MapsActivity.this, place, (cty, st, cntry, locAddress) -> {
                 addressBilling = Objects.requireNonNull(place.getAddress()).toString();
                 if (place.getLatLng() != null) {
+                    // txtCurrentAddress.setText(addressBilling);
                     txtAddress.setText(place.getAddress());
                     latitudeBilling = "" + place.getLatLng().latitude;
                     longitudeBilling = "" + place.getLatLng().longitude;
@@ -485,14 +542,27 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     double newLngPickUp = Double.valueOf(longitudeBilling);
                     pointPickUp = new LatLng(newLatPickUp, newLngPickUp);
                     isChangedAddress = true;
-                    final CameraPosition cameraPosition = new CameraPosition.Builder()
-                            .target(pointPickUp)      // Sets the center of the map to Mountain View
-                            .zoom(15)                   // Sets the zoom
-                            .bearing(45)                // Sets the orientation of the camera to east
-                            .tilt(30)                   // Sets the tilt of the camera to 30 degrees
-                            .build();
 
-                    mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                    @SuppressLint("InflateParams") View markerView = LayoutInflater.from(this).inflate(R.layout.custom_marker_layout, null);
+                    DisplayMetrics displayMetrics = new DisplayMetrics();
+
+                    markerView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                    markerView.measure(displayMetrics.widthPixels, displayMetrics.heightPixels);
+                    markerView.layout(0, 0, displayMetrics.widthPixels, displayMetrics.heightPixels);
+                    markerView.buildDrawingCache();
+                    Bitmap finalBitmap = Bitmap.createBitmap(markerView.getMeasuredWidth(), markerView.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+                    Canvas canvas = new Canvas(finalBitmap);
+                    markerView.draw(canvas);
+                    MarkerOptions markerOptions = new MarkerOptions();
+
+
+                    markerOptions.position(pointPickUp);
+
+                    mMap.addMarker(markerOptions.icon(BitmapDescriptorFactory.fromBitmap(finalBitmap)));
+                    CameraUpdate cameraUpdate1 = CameraUpdateFactory.newLatLngZoom(pointPickUp, 13);
+                    mMap.animateCamera(cameraUpdate1);
+
+
 
                 }
 
@@ -579,4 +649,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
 
     }
+
+    @SuppressLint("ClickableViewAccessibility")
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        detector.onTouchEvent(motionEvent);
+        return true;
+    }
+
+
 }
