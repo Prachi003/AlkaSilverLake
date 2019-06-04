@@ -314,6 +314,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="210dp"
+                android:layout_marginTop="30dp"
                 android:visibility="gone"
                 android:id="@+id/rlOrderClick"
                 >
@@ -349,10 +350,12 @@
                             android:layout_gravity="bottom"
                             android:layout_weight="1"
                             android:fontFamily="@font/brownregular"
-                            android:gravity="center|bottom"
+                            android:gravity="center"
+
+
                             android:text="@string/new_account"
                             android:letterSpacing=".1"
-                            android:textColor="@color/darkGrayColor"
+                            android:textColor="@color/graycolornew"
                             android:textSize="8sp" />
 
 
@@ -373,12 +376,10 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/brownregular"
                             android:gravity="center"
-
-
                             android:text="@string/signin"
                             android:padding="8dp"
                             android:letterSpacing=".1"
-                            android:textColor="@color/darkGrayColor"
+                            android:textColor="@color/graycolornew"
                             android:textSize="8sp" />
 
 
@@ -389,6 +390,7 @@
                 <android.support.v7.widget.CardView
                     android:id="@+id/setting_card"
                     android:layout_width="match_parent"
+                    app:cardElevation="2dp"
                     android:layout_height="150dp"
 
                     android:layout_marginEnd="5dp"
@@ -449,10 +451,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
-                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:layout_marginBottom="10dp"
                 android:layout_height="wrap_content">
 
                 <TextView

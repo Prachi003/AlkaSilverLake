@@ -23,9 +23,9 @@
                 android:textSize="14sp"
                 android:id="@+id/txtCount"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="1dp"
                 android:fontFamily="@font/brownbold"
-                android:textColor="@color/pickerview_topbar_title" />
+                android:textColor="@color/darkGrayColor" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,7 +35,6 @@
                 android:textSize="14sp"
                 android:textColor="@color/darkGrayColor"
                 android:fontFamily="@font/brownbold"
-                android:layout_marginTop="5dp"
                 android:layout_height="wrap_content" />
 
             <TextView
@@ -47,7 +46,6 @@
                 android:id="@+id/txtProduct"
                 android:textColor="@color/darkGrayColor"
                 android:text="  5 Gallon Glass"
-                android:layout_marginTop="5dp"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>

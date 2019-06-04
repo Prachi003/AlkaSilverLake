@@ -57,7 +57,7 @@ import retrofit2.Callback;
 public class NewAccActivity extends BaseActivity implements View.OnClickListener {
 
     //Pattern PASSWORD_PATTERN = Pattern.compile("^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,100}$");
-    Pattern PASSWORD_PATTERN = Pattern.compile("[a-zA-Z0-9!@#$]{8,}");
+    Pattern PASSWORD_PATTERN = Pattern.compile("^(?=.*[A-Z])(?=.*[!@#$.,%^&*])(?=.*[0-9])(?=.*[a-z]).{8,100}");
 
     private EditText firstname, lastname, email, mobnumber, password, birth;
     private TextInputLayout firstnameLayout;

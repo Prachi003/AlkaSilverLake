@@ -55,6 +55,8 @@ public class PickupAddreessActivity extends BaseActivity implements View.OnClick
     private GestureDetector gestureDetector;
     private List<HistoryModel.DataBean> productsBeanList = new ArrayList<>();
     private ProductAdapter productAdapter;
+    private CardView newCard;
+    private CardView setting_card;
     private TextView tvRecordMyLast;
 
     private TextView tvDate;
@@ -80,11 +82,12 @@ public class PickupAddreessActivity extends BaseActivity implements View.OnClick
         tvRecordMyLast = findViewById(R.id.tvRecordMyLast);
         LinearLayout llViewAddress = findViewById(R.id.llViewAddress);
         tvDate = findViewById(R.id.tvDate);
+        newCard = findViewById(R.id.newCard);
         tv_signin = findViewById(R.id.tv_signin);
         Button btnMenu = findViewById(R.id.btnMenu);
         ImageView ivProfile = findViewById(R.id.ivProfile);
         RecyclerView recyclerLastOrder = findViewById(R.id.recyclerLastOrder);
-        CardView setting_card = findViewById(R.id.setting_card);
+        setting_card = findViewById(R.id.setting_card);
         ivCart = findViewById(R.id.ivCart);
         TextView tvViewOrder = findViewById(R.id.tvViewOrder);
         RelativeLayout rlOrderClick = findViewById(R.id.rlOrderClick);
@@ -138,7 +141,7 @@ public class PickupAddreessActivity extends BaseActivity implements View.OnClick
 
         });
 
-        if (productsBeanList.size() == 0) {
+      /*  if (productsBeanList.size() == 0) {
             tvRecordMyLast.setVisibility(View.GONE);
             tvDate.setVisibility(View.GONE);
             tv_signin.setVisibility(View.VISIBLE);
@@ -148,7 +151,7 @@ public class PickupAddreessActivity extends BaseActivity implements View.OnClick
             tvDate.setVisibility(View.VISIBLE);
             tv_signin.setVisibility(View.GONE);
 
-        }
+        }*/
 
     }
 
@@ -255,7 +258,10 @@ public class PickupAddreessActivity extends BaseActivity implements View.OnClick
                 break;
 
             case R.id.ivCart:
-                new Thread(() -> {
+                Intent intent = new Intent(PickupAddreessActivity.this, CartDetailActivity.class);
+                startActivity(intent);
+
+               /* new Thread(() -> {
                     if (session.isLoggedIn()) {
                         final List<AddOrder> getallOrder = dataManager().loadAllProductlist(session.getRegistration().getId());
                         //cartProductlistAdapter.setList(getallOrder);
@@ -285,7 +291,7 @@ public class PickupAddreessActivity extends BaseActivity implements View.OnClick
 
                     }
 
-                }).start();
+                }).start();*/
                 break;
 
 
@@ -344,13 +350,16 @@ public class PickupAddreessActivity extends BaseActivity implements View.OnClick
                                 productsBeanList.add(productsBean);
                             }
                             if (productsBeanList.size() == 0) {
-                                tvRecordMyLast.setVisibility(View.GONE);
+                                newCard.setVisibility(View.VISIBLE);
+                                setting_card.setVisibility(View.GONE);
                                 tvDate.setVisibility(View.GONE);
                                 tv_signin.setVisibility(View.VISIBLE);
                             } else {
                                 tvRecordMyLast.setVisibility(View.VISIBLE);
+                                newCard.setVisibility(View.GONE);
                                 tvDate.setVisibility(View.VISIBLE);
                                 tv_signin.setVisibility(View.GONE);
+                                setting_card.setVisibility(View.VISIBLE);
                             }
                             for (int i = 0; i < productsBeanList.size(); i++) {
                                 if (i == 0) {

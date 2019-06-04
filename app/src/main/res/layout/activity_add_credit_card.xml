@@ -226,6 +226,8 @@
             android:fontFamily="@font/brownregular"
             android:layout_marginRight="5dp"
             android:textColor="@color/whiteColor"
+            android:id="@+id/txtDone"
+            android:padding="10dp"
             android:text="Done"
             android:letterSpacing=".2"
             android:layout_alignParentEnd="true"

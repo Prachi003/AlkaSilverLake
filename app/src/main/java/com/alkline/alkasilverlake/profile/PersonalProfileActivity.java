@@ -314,7 +314,7 @@ public class PersonalProfileActivity extends BaseActivity implements View.OnClic
         } else if (!PASSWORD_PATTERN.matcher(edtPassword.getText().toString()).matches()) {
             Toast.makeText(this, "Enter valid Password", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (edtMobile.getText().length() > 9) {
+        } else if (edtMobile.getText().length() < 9) {
             Toast.makeText(this, "Mobile no should not be less then 9 digits", Toast.LENGTH_SHORT).show();
             return false;
 

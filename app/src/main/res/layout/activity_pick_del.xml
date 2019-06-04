@@ -2,23 +2,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/rlParent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/menu_screen_bg">
-
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="35dp">
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="20dp">
 
         <ImageView
+            android:id="@+id/ivProfile"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:id="@+id/ivProfile"
             android:background="@drawable/circleboraderwhite"
             app:srcCompat="@drawable/ic_user_ico"
             tools:ignore="ContentDescription" />
@@ -35,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/brownlight"
+                android:fontFamily="@font/brownbold"
                 android:gravity="center"
                 android:letterSpacing=".23"
                 android:text="PICKUP"
@@ -48,10 +47,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="2dp"
-                android:fontFamily="@font/brownbold"
+                android:fontFamily="@font/brownlight"
                 android:gravity="center"
-                android:text="OR"
                 android:letterSpacing=".22"
+                android:text="OR"
                 android:textColor="@color/appColor"
                 android:textSize="10sp" />
 
@@ -59,10 +58,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/brownlight"
                 android:layout_marginLeft="2dp"
-                android:letterSpacing=".23"
+                android:fontFamily="@font/brownbold"
                 android:gravity="center"
+                android:letterSpacing=".23"
                 android:text="DELIVERY"
                 android:textColor="@color/appColor"
                 android:textSize="10sp"
@@ -86,184 +85,191 @@
                   android:textSize="10sp" />
       -->
         <ImageView
+            android:id="@+id/ivCart"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:scaleType="centerInside"
-            android:id="@+id/ivCart"
-            android:tint="@color/whiteColor"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:background="@drawable/circleboraderwhite"
+            android:scaleType="centerInside"
+            android:tint="@color/whiteColor"
             app:srcCompat="@drawable/ic_bag_img"
-            android:layout_alignParentEnd="true"
             tools:ignore="ContentDescription" />
 
     </RelativeLayout>
 
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:id="@+id/rlOrderClick"
-        android:layout_centerInParent="true">
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:gravity="center">
 
-        <android.support.v7.widget.CardView
+        <RelativeLayout
+            android:id="@+id/rlOrderClick"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="7dp"
-            android:layout_marginStart="7dp"
-            app:cardBackgroundColor="@color/ligthestWhiteColor"
-            app:cardCornerRadius="20dp"
-            app:cardUseCompatPadding="true">
+            android:layout_height="175dp"
+            android:gravity="center">
 
-
-
-
-            <LinearLayout
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="30dp"
-                android:layout_gravity="bottom"
-                android:weightSum="2">
+                android:layout_height="80dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="7dp"
+                app:cardBackgroundColor="@color/ligthestWhiteColor"
+                app:cardCornerRadius="20dp"
+                app:cardUseCompatPadding="true">
 
-                <TextView
-                    android:id="@+id/pd_new_account"
-                    android:layout_width="0dp"
-                    android:padding="8dp"
-                    android:layout_height="wrap_content"
-
-                    android:layout_gravity="bottom"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/brownregular"
-                    android:gravity="center|bottom"
-                    android:text="NEW ACCOUNT"
-                    android:letterSpacing=".1"
-                    android:textColor="@color/darkGrayColor"
-                    android:textSize="10sp" />
-
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="12dp"
-                    android:layout_gravity="center"
-
-
-                    android:background="@color/darkGrayColor" />
-
-
-                <TextView
-                    android:id="@+id/pd_signin"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/brownregular"
-                    android:gravity="center"
-
-                    android:text="@string/signin"
-                    android:padding="8dp"
-                    android:letterSpacing=".1"
-                    android:textColor="@color/darkGrayColor"
-                    android:textSize="10sp" />
-
-
-            </LinearLayout>
-
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/setting_card"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginStart="5dp"
-            app:cardBackgroundColor="@color/whiteColor"
-            app:cardCornerRadius="26dp"
-            app:cardUseCompatPadding="true">
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="25dp"
-                    android:orientation="vertical"
-
-                    >
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="30dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
                     <TextView
-                        android:id="@+id/rtv_account"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/pd_new_account"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                        android:layout_gravity="bottom"
+
+                        android:layout_weight="1"
                         android:fontFamily="@font/brownregular"
-                        android:letterSpacing=".2"
-                        android:text="@string/asl"
-                        android:textColor="@color/appColor"
-                        android:textSize="12sp" />
+                        android:gravity="center|bottom"
+                        android:letterSpacing=".1"
+                        android:padding="8dp"
+                        android:text="NEW ACCOUNT"
+                        android:textColor="@color/graycolornew"
+                        android:textSize="10sp" />
+
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="center"
+
+
+                        android:background="@color/darkGrayColor" />
 
 
                     <TextView
-                        android:id="@+id/tv_signin"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/pd_signin"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="30dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="5dp"
-                        android:fontFamily="@font/brownbold"
+                        android:layout_gravity="bottom"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/brownregular"
                         android:gravity="center"
-                        android:text="@string/quality"
-                        android:textColor="@color/darkGrayColor"
-                        android:textSize="16sp" />
 
-
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="25dp"
-                        android:id="@+id/btnOrderNow"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="30dp"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/btnappcolorback"
-                        android:fontFamily="@font/brownbold"
-                        android:gravity="center"
-                        android:letterSpacing=".20"
-                        android:text="@string/ordernow"
-                        android:textAllCaps="false"
-                        android:textColor="@color/whiteColor"
-                        android:textSize="12sp" />
+                        android:letterSpacing=".1"
+                        android:padding="8dp"
+                        android:text="@string/signin"
+                        android:textColor="@color/graycolornew"
+                        android:textSize="10sp" />
 
 
                 </LinearLayout>
 
+            </android.support.v7.widget.CardView>
 
-            </RelativeLayout>
+            <android.support.v7.widget.CardView
+                android:id="@+id/setting_card"
+                android:layout_width="match_parent"
+                android:layout_height="149dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                app:cardBackgroundColor="@color/whiteColor"
+                app:cardCornerRadius="26dp"
+                app:cardUseCompatPadding="true">
 
 
-        </android.support.v7.widget.CardView>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical"
+
+                        >
+
+                        <TextView
+                            android:id="@+id/rtv_account"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/brownregular"
+                            android:letterSpacing=".2"
+                            android:text="@string/asl"
+                            android:textColor="@color/appColor"
+                            android:textSize="12sp" />
+
+
+                        <TextView
+                            android:id="@+id/tv_signin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="30dp"
+                            android:fontFamily="@font/brownbold"
+                            android:gravity="center"
+                            android:text="@string/quality"
+                            android:textColor="@color/darkGrayColor"
+                            android:textSize="16sp" />
+
+
+                        <Button
+                            android:id="@+id/btnOrderNow"
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="30dp"
+                            android:layout_marginBottom="20dp"
+                            android:background="@drawable/btnappcolorback"
+                            android:fontFamily="@font/brownbold"
+                            android:gravity="center"
+                            android:letterSpacing=".20"
+                            android:text="@string/ordernow"
+                            android:textAllCaps="false"
+                            android:textColor="@color/whiteColor"
+                            android:textSize="12sp" />
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+        </RelativeLayout>
 
 
     </RelativeLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content">
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -271,15 +277,15 @@
             tools:ignore="ContentDescription" />
 
         <Button
+            android:id="@+id/btnMenu"
             android:layout_width="150dp"
             android:layout_height="25dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-5dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/btnappcolorback"
             android:fontFamily="@font/brownbold"
             android:gravity="center"
-            android:id="@+id/btnMenu"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="-5dp"
-            android:layout_centerHorizontal="true"
             android:letterSpacing=".20"
             android:text="@string/menu"
             android:textAllCaps="false"
@@ -287,6 +293,5 @@
             android:textSize="12sp" />
 
     </LinearLayout>
-
 
 </RelativeLayout>

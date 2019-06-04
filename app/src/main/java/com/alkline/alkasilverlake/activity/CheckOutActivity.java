@@ -67,27 +67,12 @@ public class CheckOutActivity extends BaseActivity implements View.OnClickListen
     private ImageView imgbillingUp;
     private Session session;
     private Handler handler = new Handler(Looper.myLooper());
-    private String name = "";
-    private String city = "";
-    private String country = "";
-    private String state = "";
-    private String address = "";
-    private String addressBilling = "";
-    private String stateBilling = "";
-    private String countryBilling = "";
+    private String name = "", city = "", country = "", state = "", address = "", addressBilling = "", stateBilling = "", countryBilling = "", latitude = "", longitude = "",
+            latitudeBilling = "", longitudeBilling = "";
     private LinearLayout llAutoDeliveryOptions;
-    private boolean isSelect = true;
-    private boolean isSelectSame = true;
-    private boolean isByWeekly = true;
-    private boolean isWeekly = true;
-    private boolean isMonthly = true;
-    private boolean isIndefinite = true;
-    private boolean isByMonthly = true;
+    private boolean isSelect = true, isSelectSame = true,
+            isByWeekly = true, isWeekly = true, isMonthly = true, isIndefinite = true, isByMonthly = true;
     private PDialog pDialog = new PDialog();
-    private String latitude;
-    private String longitude;
-    String latitudeBilling;
-    String longitudeBilling;
     private ImageView ivStartDate;
     private ImageView ivEndDate;
     private TextView txtAddress;
@@ -254,16 +239,7 @@ public class CheckOutActivity extends BaseActivity implements View.OnClickListen
 
             case R.id.ivAutoDelivery:
                 showPopupBillingInfo();
-              /*  if (isSelectAuto) {
-                    ivAutoDelivery.setImageResource(R.drawable.active_check_ico);
-                    llAutoDeliveryOptions.setVisibility(View.VISIBLE);
-                    isAutodelivery = "1";
-                    isSelectAuto = false;
-                } else {
-                    isSelectAuto = true;
-                    ivAutoDelivery.setImageResource(R.drawable.circlewhite);
-                    llAutoDeliveryOptions.setVisibility(View.GONE);
-                }*/
+
 
                 break;
 

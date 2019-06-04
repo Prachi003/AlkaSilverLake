@@ -532,7 +532,7 @@ public class MapsActivity extends AppCompatActivity implements
             new AddressLocationTask(MapsActivity.this, place, (cty, st, cntry, locAddress) -> {
                 addressBilling = Objects.requireNonNull(place.getAddress()).toString();
                 if (place.getLatLng() != null) {
-                    // txtCurrentAddress.setText(addressBilling);
+                    txtCurrentAddress.setText(addressBilling);
                     txtAddress.setText(place.getAddress());
                     latitudeBilling = "" + place.getLatLng().latitude;
                     longitudeBilling = "" + place.getLatLng().longitude;

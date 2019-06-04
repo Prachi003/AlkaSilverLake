@@ -116,10 +116,19 @@ public class TabActivity extends BaseActivity implements View.OnClickListener,Vi
             public boolean onSwipe(Direction direction) {
 
                 if (direction==Direction.down){
+                    Session session = new Session(TabActivity.this);
 
-                    Intent intentOrderNow = new Intent(TabActivity.this, TabActivity.class);
-                    startActivity(intentOrderNow);
-                    overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
+
+                    if (!session.isLoggedIn()) {
+                        Intent intentPicDel = new Intent(TabActivity.this, PickDelActivity.class);
+                        overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
+                        startActivity(intentPicDel);
+
+                    } else {
+                        Intent intentPicDel = new Intent(TabActivity.this, PickupAddreessActivity.class);
+                        overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
+                        startActivity(intentPicDel);
+                    }
 
                 }
 
@@ -272,9 +281,20 @@ public class TabActivity extends BaseActivity implements View.OnClickListener,Vi
             case SimpleGestureFilter.SWIPE_DOWN:
                 Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.frame);
                 if ((fragment instanceof HomeFragment)) {
-                    Intent intentOrderNow = new Intent(TabActivity.this, PickupAddreessActivity.class);
-                    startActivity(intentOrderNow);
-                    overridePendingTransition(R.anim.slide_down, R.anim.slide_up);
+                    Session session = new Session(TabActivity.this);
+
+
+                    if (!session.isLoggedIn()) {
+                        Intent intentPicDel = new Intent(TabActivity.this, PickDelActivity.class);
+                        overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
+                        startActivity(intentPicDel);
+
+                    } else {
+                        Intent intentPicDel = new Intent(TabActivity.this, PickupAddreessActivity.class);
+                        overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
+                        startActivity(intentPicDel);
+                    }
+
                 }
                 break;
             case SimpleGestureFilter.SWIPE_UP:

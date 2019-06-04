@@ -30,6 +30,7 @@ import android.widget.Toast;
 import com.alkline.alkasilverlake.R;
 import com.alkline.alkasilverlake.Session;
 import com.alkline.alkasilverlake.activity.CartDetailActivity;
+import com.alkline.alkasilverlake.activity.PickDelActivity;
 import com.alkline.alkasilverlake.activity.PickupAddreessActivity;
 import com.alkline.alkasilverlake.adapter.CartGeoRecycleProductlistAdapter;
 import com.alkline.alkasilverlake.adapter.CartProductlistAdapter;
@@ -208,8 +209,14 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                 break;
 
             case R.id.btnMenu:
-                Intent intentPicDel = new Intent(mContext, PickupAddreessActivity.class);
-                startActivity(intentPicDel);
+                if (!session.isLoggedIn()) {
+                    Intent intentPicDel = new Intent(mContext, PickDelActivity.class);
+                    startActivity(intentPicDel);
+
+                } else {
+                    Intent intentPicDel = new Intent(mContext, PickupAddreessActivity.class);
+                    startActivity(intentPicDel);
+                }
                 break;
 
             case R.id.ivProfilenew:

@@ -96,14 +96,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="255dp"
         android:id="@+id/rlOrderClick"
         android:layout_centerInParent="true">
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginBottom="40dp"
+            android:layout_height="78dp"
+            android:layout_marginBottom="35dp"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="7dp"
             android:layout_marginStart="7dp"
@@ -132,9 +132,11 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/brownregular"
                     android:gravity="center"
+                    android:layout_marginBottom="3dp"
+
+
 
                     android:text="View all my orders"
-                    android:padding="8dp"
                     android:textAllCaps="true"
 
                     android:letterSpacing=".1"
@@ -149,8 +151,9 @@
         <android.support.v7.widget.CardView
             android:id="@+id/setting_card"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="165dp"
             android:layout_marginEnd="5dp"
+            android:visibility="visible"
 
             android:layout_marginStart="5dp"
             android:layout_marginTop="30dp"
@@ -190,8 +193,7 @@
                         android:gravity="center"
                         android:text="@string/quality"
                         android:textColor="#000"
-                        android:textSize="16sp"
-                      />
+                        android:textSize="16sp" />
                     <TextView
                         android:id="@+id/tvRecordMyLast"
                         android:layout_width="wrap_content"
@@ -215,7 +217,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:visibility="visible"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="3dp"
                         android:textAllCaps="true"
                         android:layout_below="@+id/tvRecordMyLast"
 
@@ -231,6 +233,8 @@
                     <android.support.v7.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:id="@+id/recyclerLastOrder"
+                        android:layout_marginTop="3dp"
+                        tools:listitem="@layout/product_adapter"
 
                         android:layout_below="@+id/tvDate"
                         android:layout_centerHorizontal="true"
@@ -243,6 +247,62 @@
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:layout_below="@+id/recyclerLastOrder" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/newCard"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="55dp"
+
+            android:layout_marginEnd="5dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/whiteColor"
+            app:cardCornerRadius="26dp"
+
+            app:cardUseCompatPadding="true">
+
+
+            <RelativeLayout
+                android:id="@+id/rlLastOrdersnewCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp">
+
+                <RelativeLayout
+                    android:id="@+id/rlLastOrdersNewnewCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+
+                    >
+
+
+                    <TextView
+                        android:id="@+id/tv_signinnewCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/brownbold"
+
+                        android:gravity="center"
+                        android:text="@string/quality"
+                        android:textColor="#000"
+                        android:textSize="16sp"
+                        android:visibility="visible" />
+
 
                 </RelativeLayout>
 

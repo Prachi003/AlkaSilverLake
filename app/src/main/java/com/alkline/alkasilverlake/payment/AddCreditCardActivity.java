@@ -1,6 +1,7 @@
 package com.alkline.alkasilverlake.payment;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -47,6 +49,7 @@ public class AddCreditCardActivity extends AppCompatActivity implements View.OnC
     private EditText edCardHolder;
     private EditText edCvv;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +63,7 @@ public class AddCreditCardActivity extends AppCompatActivity implements View.OnC
         edCvv = findViewById(R.id.edCvv);
         edDateTime = findViewById(R.id.edDateTime);
         ImageView ivClose = findViewById(R.id.ivClose);
+        TextView txtDone = findViewById(R.id.txtDone);
         ImageView ivRightarrow = findViewById(R.id.ivRightarrow);
         ImageView ivBackArrow = findViewById(R.id.ivBackArrow);
         LinearLayout llDate = findViewById(R.id.llDate);
@@ -74,6 +78,7 @@ public class AddCreditCardActivity extends AppCompatActivity implements View.OnC
         ivClose.setOnClickListener(this);
         ivRightarrow.setOnClickListener(this);
         ivBackArrow.setOnClickListener(this);
+        txtDone.setOnClickListener(this);
 
         pDialog = new PDialog();
         if (edCvv.hasFocus()&&edCardHolder.hasFocus()){
@@ -147,6 +152,17 @@ public class AddCreditCardActivity extends AppCompatActivity implements View.OnC
                  edCvv.requestFocus();
                 }
 
+                break;
+
+            case R.id.txtDone:
+                InputMethodManager imm = (InputMethodManager) AddCreditCardActivity.this.getSystemService(Activity.INPUT_METHOD_SERVICE);
+                //Find the currently focused view, so we can grab the correct window token from it.
+                View view = AddCreditCardActivity.this.getCurrentFocus();
+                //If no view currently has focus, create a new one, just so we can grab a window token from it
+                if (view == null) {
+                    view = new View(AddCreditCardActivity.this);
+                }
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                 break;
 
 
